@@ -11,9 +11,9 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- Drop existing schema if rerun (optional)
--- DROP DATABASE IF EXISTS bookshop_db;
--- CREATE DATABASE bookshop_db;
--- USE bookshop_db;
+DROP DATABASE IF EXISTS bookshop_db;
+CREATE DATABASE bookshop_db;
+USE bookshop_db;
 
 -- ----------------------------
 -- TABLE: AUTHORS
