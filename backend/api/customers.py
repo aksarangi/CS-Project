@@ -1,0 +1,199 @@
+# backend/api/customers.py
+
+from database.db_connection import get_connection
+from utils.helpers import safe_get, format_date
+from utils.validators import is_valid_email, is_non_empty_string
+from utils.logger import logger
+from backend.models.customer_model import CustomerModel
+
+
+class CustomersAPI:
+    """
+    Local API class to manage customers using CustomerModel.
+    Provides CRUD + search functionality.
+    """
+
+    def get_all(self, search=None, city=None, state=None):
+        """
+        Returns all customers with optional filters:
+        - search: match in full_name or email
+        - city
+        - state
+        """
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in get_all()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor(dictionary=True)
+        try:
+            query = "SELECT * FROM customers WHERE 1=1"
+            params = []
+
+            if search:
+                query += " AND (full_name LIKE %s OR email LIKE %s)"
+                params.extend([f"%{search}%", f"%{search}%"])
+            if city:
+                query += " AND city=%s"
+                params.append(city)
+            if state:
+                query += " AND state=%s"
+                params.append(state)
+
+            cursor.execute(query, tuple(params))
+            rows = cursor.fetchall()
+            customers = [CustomerModel.from_db_row(row).to_dict() for row in rows]
+            logger.info(f"Fetched {len(customers)} customers")
+            return {"status": "success", "data": customers}
+
+        except Exception as e:
+            logger.error(f"Error fetching customers: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def get_by_id(self, customer_id):
+        """
+        Fetch a single customer by ID
+        """
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in get_by_id()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor(dictionary=True)
+        try:
+            query = "SELECT * FROM customers WHERE customer_id=%s"
+            cursor.execute(query, (customer_id,))
+            row = cursor.fetchone()
+            if row:
+                customer = CustomerModel.from_db_row(row)
+                logger.info(f"Customer fetched: {customer_id}")
+                return {"status": "success", "data": customer.to_dict()}
+            else:
+                logger.warning(f"Customer not found: {customer_id}")
+                return {"status": "error", "message": "Customer not found"}
+
+        except Exception as e:
+            logger.error(f"Error fetching customer by ID {customer_id}: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def add(self, customer_data):
+        """
+        Add a new customer.
+        Required: full_name
+        Optional: email, phone, address, city, state, country, postal_code
+        """
+        full_name = safe_get(customer_data, "full_name")
+        if not is_non_empty_string(full_name):
+            return {"status": "error", "message": "full_name is required"}
+
+        email = safe_get(customer_data, "email")
+        if email and not is_valid_email(email):
+            return {"status": "error", "message": "Invalid email format"}
+
+        phone = safe_get(customer_data, "phone")
+        address = safe_get(customer_data, "address")
+        city = safe_get(customer_data, "city")
+        state = safe_get(customer_data, "state")
+        country = safe_get(customer_data, "country", "India")
+        postal_code = safe_get(customer_data, "postal_code")
+
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in add()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor()
+        try:
+            query = """
+                INSERT INTO customers (full_name, email, phone, address, city, state, country, postal_code)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            cursor.execute(query, (full_name, email, phone, address, city, state, country, postal_code))
+            conn.commit()
+            customer_id = cursor.lastrowid
+            logger.info(f"Customer added: {customer_id} - {full_name}")
+
+            new_customer = CustomerModel(
+                customer_id=customer_id,
+                full_name=full_name,
+                email=email,
+                phone=phone,
+                address=address,
+                city=city,
+                state=state,
+                country=country,
+                postal_code=postal_code
+            )
+            return {"status": "success", "message": "Customer added", "data": new_customer.to_dict()}
+
+        except Exception as e:
+            logger.error(f"Error adding customer: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def update(self, customer_id, customer_data):
+        """
+        Update an existing customer
+        """
+        if not customer_data:
+            return {"status": "error", "message": "No fields to update"}
+
+        if "email" in customer_data and customer_data["email"] and not is_valid_email(customer_data["email"]):
+            return {"status": "error", "message": "Invalid email format"}
+
+        fields = ", ".join(f"{key}=%s" for key in customer_data.keys())
+        values = list(customer_data.values())
+        values.append(customer_id)
+
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in update()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor()
+        try:
+            query = f"UPDATE customers SET {fields} WHERE customer_id=%s"
+            cursor.execute(query, values)
+            conn.commit()
+            logger.info(f"Customer updated: {customer_id}")
+
+            updated_customer = self.get_by_id(customer_id)
+            return {"status": "success", "message": "Customer updated", "data": updated_customer.get("data")}
+
+        except Exception as e:
+            logger.error(f"Error updating customer {customer_id}: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def delete(self, customer_id):
+        """
+        Delete a customer by ID
+        """
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in delete()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor()
+        try:
+            cursor.execute("DELETE FROM customers WHERE customer_id=%s", (customer_id,))
+            conn.commit()
+            logger.info(f"Customer deleted: {customer_id}")
+            return {"status": "success", "message": "Customer deleted"}
+
+        except Exception as e:
+            logger.error(f"Error deleting customer {customer_id}: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
