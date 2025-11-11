@@ -1,20 +1,18 @@
+# backend/api/publishers.py
+
 from database.db_connection import get_connection
-from models.book_model import BookModel
-from utils.helpers import safe_get, format_date, round_price
-from utils.validators import is_positive_number, is_non_negative_integer, is_valid_isbn
+from utils.helpers import safe_get
 from utils.logger import logger
+from models.publisher_model import PublisherModel
 
 
-class BookAPI:
+class PublishersAPI:
     """
-    Local API for managing books in the Bookshop Management System.
-    Handles CRUD operations + dynamic search.
+    Local API class to manage publishers using PublisherModel.
+    Provides CRUD + dynamic search functionality.
     """
 
-    def get_all(self):
-        """
-        Retrieve all books with author and publisher info.
-        """
+    def get_all(self, search=None):
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in get_all()")
@@ -22,27 +20,24 @@ class BookAPI:
 
         cursor = conn.cursor(dictionary=True)
         try:
-            cursor.execute("""
-                SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                FROM books b
-                LEFT JOIN authors a ON b.author_id = a.author_id
-                LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-            """)
+            if search:
+                query = "SELECT * FROM publishers WHERE name LIKE %s OR location LIKE %s"
+                cursor.execute(query, (f"%{search}%", f"%{search}%"))
+            else:
+                query = "SELECT * FROM publishers"
+                cursor.execute(query)
             rows = cursor.fetchall()
-            books = [BookModel.from_db_row(row).to_dict() for row in rows]
-            logger.info(f"Fetched {len(books)} books")
-            return {"status": "success", "data": books}
+            publishers = [PublisherModel.from_db_row(row).to_dict() for row in rows]
+            logger.info(f"Fetched {len(publishers)} publishers")
+            return {"status": "success", "data": publishers}
         except Exception as e:
-            logger.error(f"Error fetching books: {e}")
+            logger.error(f"Error fetching publishers: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
-    def get_by_id(self, book_id):
-        """
-        Retrieve a specific book by ID.
-        """
+    def get_by_id(self, publisher_id):
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in get_by_id()")
@@ -50,51 +45,30 @@ class BookAPI:
 
         cursor = conn.cursor(dictionary=True)
         try:
-            cursor.execute("""
-                SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                FROM books b
-                LEFT JOIN authors a ON b.author_id = a.author_id
-                LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-                WHERE b.book_id=%s
-            """, (book_id,))
+            cursor.execute("SELECT * FROM publishers WHERE publisher_id=%s", (publisher_id,))
             row = cursor.fetchone()
-            if not row:
-                return {"status": "error", "message": "Book not found"}
-
-            book = BookModel.from_db_row(row).to_dict()
-            logger.info(f"Book fetched: {book_id}")
-            return {"status": "success", "data": book}
+            if row:
+                publisher = PublisherModel.from_db_row(row).to_dict()
+                logger.info(f"Publisher fetched: {publisher_id}")
+                return {"status": "success", "data": publisher}
+            else:
+                logger.warning(f"Publisher not found: {publisher_id}")
+                return {"status": "error", "message": "Publisher not found"}
         except Exception as e:
-            logger.error(f"Error fetching book {book_id}: {e}")
+            logger.error(f"Error fetching publisher by ID {publisher_id}: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
-    def add(self, book_data):
-        """
-        Add a new book.
-        Required: title, author_id, publisher_id, price
-        Optional: isbn, genre, publication_year, language, stock
-        """
-        title = safe_get(book_data, "title")
-        author_id = safe_get(book_data, "author_id")
-        publisher_id = safe_get(book_data, "publisher_id")
-        price = safe_get(book_data, "price")
+    def add(self, publisher_data):
+        name = safe_get(publisher_data, "name")
+        if not name:
+            return {"status": "error", "message": "name is required"}
 
-        if not title or not author_id or not publisher_id or not is_positive_number(price):
-            return {"status": "error", "message": "title, author_id, publisher_id and valid price are required"}
-
-        isbn = safe_get(book_data, "isbn")
-        genre = safe_get(book_data, "genre")
-        publication_year = safe_get(book_data, "publication_year")
-        language = safe_get(book_data, "language", "English")
-        stock = safe_get(book_data, "stock", 0)
-
-        if isbn and not is_valid_isbn(isbn):
-            return {"status": "error", "message": "Invalid ISBN format"}
-        if not is_non_negative_integer(stock):
-            return {"status": "error", "message": "Stock must be a non-negative integer"}
+        location = safe_get(publisher_data, "location")
+        contact_email = safe_get(publisher_data, "contact_email")
+        phone = safe_get(publisher_data, "phone")
 
         conn = get_connection()
         if not conn:
@@ -103,154 +77,102 @@ class BookAPI:
 
         cursor = conn.cursor()
         try:
-            cursor.execute("""
-                INSERT INTO books (title, isbn, author_id, publisher_id, genre, publication_year, language, price, stock)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """, (
-                title, isbn, author_id, publisher_id, genre,
-                publication_year, language, round_price(price), stock
-            ))
+            query = "INSERT INTO publishers (name, location, contact_email, phone) VALUES (%s, %s, %s, %s)"
+            cursor.execute(query, (name, location, contact_email, phone))
             conn.commit()
-            book_id = cursor.lastrowid
-            logger.info(f"Book added: {book_id} - {title}")
-            return {"status": "success", "message": "Book added", "book_id": book_id}
+            publisher_id = cursor.lastrowid
+            publisher = PublisherModel(
+                publisher_id=publisher_id,
+                name=name,
+                location=location,
+                contact_email=contact_email,
+                phone=phone
+            ).to_dict()
+            logger.info(f"Publisher added: {publisher_id} - {name}")
+            return {"status": "success", "message": "Publisher added", "data": publisher}
         except Exception as e:
-            logger.error(f"Error adding book: {e}")
+            logger.error(f"Error adding publisher: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
-    def update(self, book_id, book_data):
-        """
-        Update a book record by ID.
-        """
-        if not book_data:
+    def update(self, publisher_id, publisher_data):
+        if not publisher_data:
             return {"status": "error", "message": "No fields to update"}
 
-        if "isbn" in book_data and book_data["isbn"] and not is_valid_isbn(book_data["isbn"]):
-            return {"status": "error", "message": "Invalid ISBN format"}
-        if "stock" in book_data and not is_non_negative_integer(book_data["stock"]):
-            return {"status": "error", "message": "Stock must be a non-negative integer"}
-        if "price" in book_data and not is_positive_number(book_data["price"]):
-            return {"status": "error", "message": "Price must be positive"}
-
-        if "price" in book_data:
-            book_data["price"] = round_price(book_data["price"])
-
-        fields = ", ".join(f"{key}=%s" for key in book_data.keys())
-        values = list(book_data.values())
-        values.append(book_id)
+        fields = ", ".join(f"{key}=%s" for key in publisher_data.keys())
+        values = list(publisher_data.values())
+        values.append(publisher_id)
 
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in update()")
             return {"status": "error", "message": "DB connection failed"}
 
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         try:
-            query = f"UPDATE books SET {fields} WHERE book_id=%s"
+            query = f"UPDATE publishers SET {fields} WHERE publisher_id=%s"
             cursor.execute(query, values)
             conn.commit()
-            logger.info(f"Book updated: {book_id}")
-            return {"status": "success", "message": "Book updated"}
+
+            cursor.execute("SELECT * FROM publishers WHERE publisher_id=%s", (publisher_id,))
+            row = cursor.fetchone()
+            publisher = PublisherModel.from_db_row(row).to_dict() if row else None
+
+            logger.info(f"Publisher updated: {publisher_id}")
+            return {"status": "success", "message": "Publisher updated", "data": publisher}
         except Exception as e:
-            logger.error(f"Error updating book {book_id}: {e}")
+            logger.error(f"Error updating publisher {publisher_id}: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
-    def delete(self, book_id):
-        """
-        Delete a book by ID.
-        """
+    def delete(self, publisher_id):
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in delete()")
             return {"status": "error", "message": "DB connection failed"}
+
         cursor = conn.cursor()
         try:
-            cursor.execute("DELETE FROM books WHERE book_id=%s", (book_id,))
+            cursor.execute("DELETE FROM publishers WHERE publisher_id=%s", (publisher_id,))
             conn.commit()
-            logger.info(f"Book deleted: {book_id}")
-            return {"status": "success", "message": "Book deleted"}
+            logger.info(f"Publisher deleted: {publisher_id}")
+            return {"status": "success", "message": "Publisher deleted"}
         except Exception as e:
-            logger.error(f"Error deleting book {book_id}: {e}")
+            logger.error(f"Error deleting publisher {publisher_id}: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
-    def search(self, field=None, query=None):
+    def search_by(self, field, query):
         """
-        Dynamically search books by any valid field or related entity.
-        Example:
-            search('title', 'Python') → books with 'Python' in title
-            search('isbn', '978') → books with matching ISBN
-            search(None, 'Tolkien') → all books where author/publisher contains 'Tolkien'
-            search(None, None) → all books
+        Dynamically search publishers by any valid field.
+        field: column name (e.g. 'name', 'location', 'contact_email', 'phone')
+        query: search text or partial match
         """
-        valid_fields = ["title", "isbn", "genre", "language", "publication_year"]
-        if field is not None and field not in valid_fields:
-            return {"status": "error", "message": f"Invalid search field '{field}'"}
+        valid_fields = {"name", "location", "contact_email", "phone"}
+        if field not in valid_fields:
+            return {"status": "error", "message": f"Invalid field '{field}'"}
 
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in search()")
+            logger.error("DB connection failed in search_by()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor(dictionary=True)
         try:
-            if field and query:
-                if field == "publication_year":
-                    sql = f"""
-                        SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                        FROM books b
-                        LEFT JOIN authors a ON b.author_id = a.author_id
-                        LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-                        WHERE b.{field} = %s
-                    """
-                    cursor.execute(sql, (query,))
-                else:
-                    sql = f"""
-                        SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                        FROM books b
-                        LEFT JOIN authors a ON b.author_id = a.author_id
-                        LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-                        WHERE b.{field} LIKE %s
-                    """
-                    cursor.execute(sql, (f"%{query}%",))
-            elif query:
-                sql = """
-                    SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                    FROM books b
-                    LEFT JOIN authors a ON b.author_id = a.author_id
-                    LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-                    WHERE b.title LIKE %s
-                    OR b.genre LIKE %s
-                    OR b.language LIKE %s
-                    OR b.isbn LIKE %s
-                    OR a.full_name LIKE %s
-                    OR p.name LIKE %s
-                """
-                like = f"%{query}%"
-                cursor.execute(sql, (like, like, like, like, like, like))
-            else:
-                sql = """
-                    SELECT b.*, a.full_name AS author_name, p.name AS publisher_name
-                    FROM books b
-                    LEFT JOIN authors a ON b.author_id = a.author_id
-                    LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-                """
-                cursor.execute(sql)
-
+            sql = f"SELECT * FROM publishers WHERE {field} LIKE %s"
+            cursor.execute(sql, (f"%{query}%",))
             rows = cursor.fetchall()
-            books = [BookModel.from_db_row(r).to_dict() for r in rows]
-            logger.info(f"Search returned {len(books)} books (field={field}, query={query})")
-            return {"status": "success", "data": books}
+            results = [PublisherModel.from_db_row(row).to_dict() for row in rows]
+            logger.info(f"Search by {field}: '{query}' → {len(results)} results")
+            return {"status": "success", "data": results}
         except Exception as e:
-            logger.error(f"Error searching books: {e}")
+            logger.error(f"Error in dynamic search: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
