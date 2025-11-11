@@ -152,7 +152,7 @@ class CategoriesAPI:
             cursor.execute("DELETE FROM categories WHERE category_id=%s", (category_id,))
             conn.commit()
             logger.info(f"Category deleted: {category_id}")
-            return {"status": "success", "message": "Category deleted"}
+            return {"status": "success", "message": "Category deleted","data": f"{category_id}"}
 
         except Exception as e:
             logger.error(f"Error deleting category {category_id}: {e}")
