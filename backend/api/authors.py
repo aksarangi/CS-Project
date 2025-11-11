@@ -177,59 +177,59 @@ class AuthorsAPI:
             conn.close()
 
     def search(self, field=None, query=None):
-    """
-    Dynamically search authors by any valid field.
+        """
+        Dynamically search authors by any valid field.
 
-    Examples:
-        search('country', 'India') → all Indian authors
-        search('full_name', 'Vikram') → authors with 'Vikram' in name
-        search(None, None) → all authors
-    """
-    valid_fields = ["full_name", "country", "birth_year", "death_year", "bio"]
+        Examples:
+            search('country', 'India') → all Indian authors
+            search('full_name', 'Vikram') → authors with 'Vikram' in name
+            search(None, None) → all authors
+        """
+        valid_fields = ["full_name", "country", "birth_year", "death_year", "bio"]
 
-    # Validate the field to prevent SQL injection
-    if field is not None and field not in valid_fields:
-        return {"status": "error", "message": f"Invalid search field '{field}'"}
+        # Validate the field to prevent SQL injection
+        if field is not None and field not in valid_fields:
+            return {"status": "error", "message": f"Invalid search field '{field}'"}
 
-    conn = get_connection()
-    if not conn:
-        logger.error("DB connection failed in search()")
-        return {"status": "error", "message": "DB connection failed"}
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in search()")
+            return {"status": "error", "message": "DB connection failed"}
 
-    cursor = conn.cursor(dictionary=True)
-    try:
-        if field and query:
-            # Special case: numeric fields (year-based) should not use LIKE
-            if field in ["birth_year", "death_year"]:
-                sql = f"SELECT * FROM authors WHERE {field} = %s"
-                cursor.execute(sql, (query,))
+        cursor = conn.cursor(dictionary=True)
+        try:
+            if field and query:
+                # Special case: numeric fields (year-based) should not use LIKE
+                if field in ["birth_year", "death_year"]:
+                    sql = f"SELECT * FROM authors WHERE {field} = %s"
+                    cursor.execute(sql, (query,))
+                else:
+                    sql = f"SELECT * FROM authors WHERE {field} LIKE %s"
+                    cursor.execute(sql, (f"%{query}%",))
+            elif query:
+                # Universal search if only query provided (search across all text fields)
+                sql = """
+                    SELECT * FROM authors
+                    WHERE full_name LIKE %s
+                    OR country LIKE %s
+                    OR bio LIKE %s
+                """
+                like_value = f"%{query}%"
+                cursor.execute(sql, (like_value, like_value, like_value))
             else:
-                sql = f"SELECT * FROM authors WHERE {field} LIKE %s"
-                cursor.execute(sql, (f"%{query}%",))
-        elif query:
-            # Universal search if only query provided (search across all text fields)
-            sql = """
-                SELECT * FROM authors
-                WHERE full_name LIKE %s
-                OR country LIKE %s
-                OR bio LIKE %s
-            """
-            like_value = f"%{query}%"
-            cursor.execute(sql, (like_value, like_value, like_value))
-        else:
-            # No field and no query → return all
-            sql = "SELECT * FROM authors"
-            cursor.execute(sql)
+                # No field and no query → return all
+                sql = "SELECT * FROM authors"
+                cursor.execute(sql)
 
-        rows = cursor.fetchall()
-        authors = [AuthorModel.from_db_row(row).to_dict() for row in rows]
-        logger.info(f"Search returned {len(authors)} authors (field={field}, query={query})")
+            rows = cursor.fetchall()
+            authors = [AuthorModel.from_db_row(row).to_dict() for row in rows]
+            logger.info(f"Search returned {len(authors)} authors (field={field}, query={query})")
 
-        return {"status": "success", "data": authors}
+            return {"status": "success", "data": authors}
 
-    except Exception as e:
-        logger.error(f"Error searching authors: {e}")
-        return {"status": "error", "message": str(e)}
-    finally:
-        cursor.close()
-        conn.close()
+        except Exception as e:
+            logger.error(f"Error searching authors: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
