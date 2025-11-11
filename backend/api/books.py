@@ -1,6 +1,9 @@
+#backend/api/books.py
+
 from database.db_connection import get_connection
 from models.book_model import BookModel
-from utils.helpers import safe_get, format_date
+from utils.helpers import safe_get, format_date, round_price
+from utils.validators import is_positive_number, is_non_negative_integer, is_valid_isbn
 from utils.logger import logger
 
 
@@ -76,6 +79,25 @@ class BookAPI:
         Required: title, author_id, publisher_id, price
         Optional: isbn, genre, publication_year, language, stock
         """
+        title = safe_get(book_data, "title")
+        author_id = safe_get(book_data, "author_id")
+        publisher_id = safe_get(book_data, "publisher_id")
+        price = safe_get(book_data, "price")
+
+        if not title or not author_id or not publisher_id or not is_positive_number(price):
+            return {"status": "error", "message": "title, author_id, publisher_id and valid price are required"}
+
+        isbn = safe_get(book_data, "isbn")
+        genre = safe_get(book_data, "genre")
+        publication_year = safe_get(book_data, "publication_year")
+        language = safe_get(book_data, "language", "English")
+        stock = safe_get(book_data, "stock", 0)
+
+        if isbn and not is_valid_isbn(isbn):
+            return {"status": "error", "message": "Invalid ISBN format"}
+        if not is_non_negative_integer(stock):
+            return {"status": "error", "message": "Stock must be a non-negative integer"}
+
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in add()")
@@ -87,19 +109,12 @@ class BookAPI:
                 INSERT INTO books (title, isbn, author_id, publisher_id, genre, publication_year, language, price, stock)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (
-                safe_get(book_data, "title"),
-                safe_get(book_data, "isbn"),
-                safe_get(book_data, "author_id"),
-                safe_get(book_data, "publisher_id"),
-                safe_get(book_data, "genre"),
-                safe_get(book_data, "publication_year"),
-                safe_get(book_data, "language"),
-                safe_get(book_data, "price"),
-                safe_get(book_data, "stock", 0)
+                title, isbn, author_id, publisher_id, genre,
+                publication_year, language, round_price(price), stock
             ))
             conn.commit()
             book_id = cursor.lastrowid
-            logger.info(f"Book added: {book_id} - {book_data.get('title')}")
+            logger.info(f"Book added: {book_id} - {title}")
             return {"status": "success", "message": "Book added", "book_id": book_id}
         except Exception as e:
             logger.error(f"Error adding book: {e}")
@@ -115,6 +130,16 @@ class BookAPI:
         if not book_data:
             return {"status": "error", "message": "No fields to update"}
 
+        if "isbn" in book_data and book_data["isbn"] and not is_valid_isbn(book_data["isbn"]):
+            return {"status": "error", "message": "Invalid ISBN format"}
+        if "stock" in book_data and not is_non_negative_integer(book_data["stock"]):
+            return {"status": "error", "message": "Stock must be a non-negative integer"}
+        if "price" in book_data and not is_positive_number(book_data["price"]):
+            return {"status": "error", "message": "Price must be positive"}
+
+        if "price" in book_data:
+            book_data["price"] = round_price(book_data["price"])
+
         fields = ", ".join(f"{key}=%s" for key in book_data.keys())
         values = list(book_data.values())
         values.append(book_id)
@@ -123,6 +148,7 @@ class BookAPI:
         if not conn:
             logger.error("DB connection failed in update()")
             return {"status": "error", "message": "DB connection failed"}
+
         cursor = conn.cursor()
         try:
             query = f"UPDATE books SET {fields} WHERE book_id=%s"
