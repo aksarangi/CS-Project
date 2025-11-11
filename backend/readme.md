@@ -1,7 +1,3 @@
-Here’s a **polished and professional API documentation** for your bookstore application, designed so that even a beginner frontend developer can confidently build a GUI. It covers **all 9 APIs**, including `AuthorsAPI` and `BooksAPI`, with clear descriptions, parameters, and expected responses.
-
----
-
 # 📚 Bookstore Backend API Documentation
 
 All API classes return JSON objects with a standard structure:
@@ -10,7 +6,7 @@ All API classes return JSON objects with a standard structure:
 {
   "status": "success|error",
   "message": "Descriptive message",
-  "data": {} | []
+  "data": {} , []
 }
 ```
 
@@ -18,15 +14,16 @@ All API classes return JSON objects with a standard structure:
 
 ## 1. **CategoriesAPI**
 
-Manage book categories.
+Manage book categories.  
+Returns refers to the `data` value in the standard json return statement.
 
 | Method                               | Description                   | Parameters                                                             | Returns                  |
 | ------------------------------------ | ----------------------------- | ---------------------------------------------------------------------- | ------------------------ |
-| `get_all()`                         | Fetch all categories.         |          | List of category objects |
-| `get_by_id(category_id)`             | Fetch a single category by ID | `category_id`                                                          | Category object          |
-| `add(category_data)`                 | Add a new category            | `category_data`: `{name: str (required), description: str (optional)}` | Newly created category   |
-| `update(category_id, category_data)` | Update category fields        | `category_id`, `category_data`                                         | Updated category         |
-| `delete(category_id)`                | Delete a category             | `category_id`                                                          | Success message          |
+| `get_all()`                         | Fetch all categories.         | NONE         | List object containing Dictionary objects (List of all categories) |
+| `get_by_id(category_id)`             | Fetch a single category by ID | `category_id`                                                          | Dictionary object (fetched category)         |
+| `add(category_data)`                 | Add a new category            | `category_data`: `{name: str (required), description: str (optional)}` |Dictionary object (new category)   |
+| `update(category_id, category_data)` | Update category fields        | `category_id`, `category_data`                                         | Dictionary object (updated category)         |
+| `delete(category_id)`                | Delete a category             | `category_id`                                                          | category id          |
 
 ---
 
@@ -151,8 +148,8 @@ Manage books.
 
 ## 💡 Notes for Frontend Developers
 
-1. **Consistent JSON structure**: Every response includes `status`, `message`, and `data`.
-2. **Search endpoints** support partial matches with `LIKE %query%`.
+1. **Consistent JSON structure**: Every response includes `status`, `message`, and `data`, but errors include only `status` and `message`.
+2. **Search endpoints** support partial matches hence query string can be passed plain.
 3. **Dates and prices** are formatted for easy display.
 4. **Foreign key fields** (`category_id`, `author_id`, `publisher_id`) must match existing records.
 5. **Staff authentication** returns `staff_id` and `role`, useful for role-based access.
@@ -164,3 +161,4 @@ Manage books.
 This documentation provides a **complete roadmap** for building a GUI frontend: forms, tables, filters, reports, and dashboards for books, authors, categories, orders, payments, publishers, staff, and inventory management.
 
 It’s beginner-friendly, yet detailed enough for professional use.
+
