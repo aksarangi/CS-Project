@@ -12,9 +12,9 @@ class CategoriesAPI:
     Provides CRUD + search functionality using CategoryModel.
     """
 
-    def get_all(self, search=None):
+    def get_all(self):
         """
-        Returns all categories, optionally filtered by name or description.
+        Returns all categories
         """
         conn = get_connection()
         if not conn:
@@ -23,13 +23,8 @@ class CategoriesAPI:
 
         cursor = conn.cursor(dictionary=True)
         try:
-            if search:
-                query = "SELECT * FROM categories WHERE name LIKE %s OR description LIKE %s"
-                cursor.execute(query, (f"%{search}%", f"%{search}%"))
-            else:
-                query = "SELECT * FROM categories"
-                cursor.execute(query)
-
+            query = "SELECT * FROM categories"
+            cursor.execute(query)
             rows = cursor.fetchall()
             categories = [CategoryModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Fetched {len(categories)} categories")
