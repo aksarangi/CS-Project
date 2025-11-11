@@ -7,10 +7,11 @@ from utils.logger import logger
 import bcrypt
 from models.staff_model import StaffModel
 
+
 class StaffAPI:
     """
     Local API class to manage staff/admin users using StaffModel.
-    Provides CRUD + authentication + role management.
+    Provides CRUD + authentication + role management + search.
     """
 
     def get_all(self, role=None):
@@ -172,6 +173,38 @@ class StaffAPI:
                 return {"status": "error", "message": "Invalid username or password"}
         except Exception as e:
             logger.error(f"Error authenticating staff {username}: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def search(self, by=None, query=None):
+        """
+        Search staff dynamically by any valid column.
+        Example: search(by='full_name', query='John')
+        """
+        valid_fields = ['username', 'full_name', 'role', 'email']
+        if by not in valid_fields:
+            return {"status": "error", "message": f"Invalid search field. Use one of: {', '.join(valid_fields)}"}
+
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in search()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor(dictionary=True)
+        try:
+            if not query:
+                cursor.execute(f"SELECT staff_id, username, full_name, role, email, created_at FROM staff")
+            else:
+                sql = f"SELECT staff_id, username, full_name, role, email, created_at FROM staff WHERE {by} LIKE %s"
+                cursor.execute(sql, (f"%{query}%",))
+            rows = cursor.fetchall()
+            data = [StaffModel.from_db_row(row).to_dict() for row in rows]
+            logger.info(f"Staff search: by={by}, query={query}, results={len(data)}")
+            return {"status": "success", "data": data}
+        except Exception as e:
+            logger.error(f"Error in staff search by {by}: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()

@@ -197,3 +197,46 @@ class CustomersAPI:
         finally:
             cursor.close()
             conn.close()
+
+    # ==========================================================
+    # 🔍 New: Flexible smart search (for universal search router)
+    # ==========================================================
+    def search_customers(self, by="any", value=None):
+        """
+        Flexible search by field or universal match.
+        `by` can be: 'full_name', 'email', 'city', 'state', 'any'
+        """
+        if not value:
+            return self.get_all()
+
+        allowed_fields = ["full_name", "email", "city", "state"]
+
+        conn = get_connection()
+        if not conn:
+            logger.error("DB connection failed in search_customers()")
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor(dictionary=True)
+        try:
+            if by == "any":
+                query = "SELECT * FROM customers WHERE "
+                query += " OR ".join(f"{field} LIKE %s" for field in allowed_fields)
+                params = tuple(f"%{value}%" for _ in allowed_fields)
+            elif by in allowed_fields:
+                query = f"SELECT * FROM customers WHERE {by} LIKE %s"
+                params = (f"%{value}%",)
+            else:
+                return {"status": "error", "message": f"Invalid field '{by}'"}
+
+            cursor.execute(query, params)
+            rows = cursor.fetchall()
+            customers = [CustomerModel.from_db_row(r).to_dict() for r in rows]
+            logger.info(f"Search '{value}' in '{by}': {len(customers)} results")
+            return {"status": "success", "data": customers}
+
+        except Exception as e:
+            logger.error(f"Error in search_customers(by={by}, value={value}): {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()

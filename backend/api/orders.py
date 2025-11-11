@@ -1,16 +1,13 @@
 # backend/api/orders.py
 
 from database.db_connection import get_connection
-from utils.helpers import safe_get, format_date, round_price
-from utils.validators import is_positive_number
+from utils.helpers import format_date
 from utils.logger import logger
-from backend.models.order_model import OrderModel, OrderItemModel
-
 
 class OrdersAPI:
     """
-    Local API class to manage orders using OrderModel.
-    Provides CRUD + search functionality.
+    Local API class to manage orders.
+    Supports CRUD + search.
     """
 
     def get_all(self, customer_id=None, status=None):
@@ -19,7 +16,6 @@ class OrdersAPI:
         """
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in get_all()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor(dictionary=True)
@@ -31,15 +27,15 @@ class OrdersAPI:
                 query += " AND customer_id=%s"
                 params.append(customer_id)
             if status:
-                query += " AND status=%s"
+                query += " AND order_status=%s"
                 params.append(status)
 
             cursor.execute(query, tuple(params))
-            rows = cursor.fetchall()
-            orders = [OrderModel.from_db_row(row).to_dict() for row in rows]
+            orders = cursor.fetchall()
+            for o in orders:
+                o["order_date"] = format_date(o.get("order_date"))
             logger.info(f"Fetched {len(orders)} orders")
             return {"status": "success", "data": orders}
-
         except Exception as e:
             logger.error(f"Error fetching orders: {e}")
             return {"status": "error", "message": str(e)}
@@ -49,37 +45,21 @@ class OrdersAPI:
 
     def get_by_id(self, order_id):
         """
-        Fetch a single order by order_id along with its items
+        Fetch a single order by ID.
         """
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in get_by_id()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor(dictionary=True)
         try:
             cursor.execute("SELECT * FROM orders WHERE order_id=%s", (order_id,))
-            row = cursor.fetchone()
-            if not row:
-                logger.warning(f"Order not found: {order_id}")
+            order = cursor.fetchone()
+            if order:
+                order["order_date"] = format_date(order.get("order_date"))
+                return {"status": "success", "data": order}
+            else:
                 return {"status": "error", "message": "Order not found"}
-
-            order = OrderModel.from_db_row(row)
-
-            # Fetch order items
-            cursor.execute("""
-                SELECT oi.item_id, oi.book_id, b.title AS book_title, oi.quantity, oi.price_each
-                FROM order_items oi
-                JOIN books b ON oi.book_id = b.book_id
-                WHERE oi.order_id=%s
-            """, (order_id,))
-            items_rows = cursor.fetchall()
-            order.items = [OrderItemModel.from_db_row(item) for item in items_rows]
-
-            order.order_date = format_date(order.order_date)
-            logger.info(f"Order fetched: {order_id} with {len(order.items)} items")
-            return {"status": "success", "data": order.to_dict()}
-
         except Exception as e:
             logger.error(f"Error fetching order {order_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -90,59 +70,25 @@ class OrdersAPI:
     def add(self, order_data):
         """
         Add a new order.
-        Required: customer_id, items (list of {book_id, quantity})
         """
-        customer_id = safe_get(order_data, "customer_id")
-        items = safe_get(order_data, "items")
-        if not customer_id or not items or not isinstance(items, list):
-            return {"status": "error", "message": "customer_id and items are required"}
+        customer_id = order_data.get("customer_id")
+        total_amount = order_data.get("total_amount", 0)
+        order_status = order_data.get("order_status", "Pending")
 
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in add()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor()
         try:
-            total_amount = 0
-            item_details = []
-
-            for item in items:
-                book_id = item.get("book_id")
-                quantity = item.get("quantity")
-                if not book_id or not is_positive_number(quantity):
-                    return {"status": "error", "message": "Invalid book_id or quantity"}
-
-                cursor.execute("SELECT price, stock FROM books WHERE book_id=%s", (book_id,))
-                book = cursor.fetchone()
-                if not book:
-                    return {"status": "error", "message": f"Book not found: {book_id}"}
-
-                price_each, stock = float(book[0]), int(book[1])
-                if quantity > stock:
-                    return {"status": "error", "message": f"Insufficient stock for book {book_id}"}
-
-                total_amount += price_each * quantity
-                item_details.append(OrderItemModel(book_id=book_id, quantity=quantity, price_each=round_price(price_each)))
-
-            # Insert order
-            cursor.execute("INSERT INTO orders (customer_id, total_amount) VALUES (%s, %s)", 
-                           (customer_id, round_price(total_amount)))
-            order_id = cursor.lastrowid
-
-            # Insert order items
-            for item in item_details:
-                cursor.execute("""
-                    INSERT INTO order_items (order_id, book_id, quantity, price_each)
-                    VALUES (%s, %s, %s, %s)
-                """, (order_id, item.book_id, item.quantity, item.price_each))
-
+            cursor.execute("""
+                INSERT INTO orders (customer_id, total_amount, order_status)
+                VALUES (%s, %s, %s)
+            """, (customer_id, total_amount, order_status))
             conn.commit()
-            logger.info(f"Order added: {order_id} for customer {customer_id}")
-
-            order = OrderModel(order_id=order_id, customer_id=customer_id, total_amount=round_price(total_amount), items=item_details)
-            return {"status": "success", "message": "Order placed", "data": order.to_dict()}
-
+            order_id = cursor.lastrowid
+            logger.info(f"Order added: {order_id}")
+            return {"status": "success", "message": "Order added", "order_id": order_id}
         except Exception as e:
             logger.error(f"Error adding order: {e}")
             return {"status": "error", "message": str(e)}
@@ -150,27 +96,29 @@ class OrdersAPI:
             cursor.close()
             conn.close()
 
-    def update_status(self, order_id, status):
+    def update(self, order_id, updates):
         """
-        Update the status of an order.
+        Update any editable fields for an order.
+        Example: update(1, {"order_status": "Completed", "total_amount": 500})
         """
-        if status not in ['Pending', 'Confirmed', 'Shipped', 'Delivered', 'Cancelled']:
-            return {"status": "error", "message": "Invalid status"}
+        if not updates:
+            return {"status": "error", "message": "No fields to update"}
 
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in update_status()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor()
         try:
-            cursor.execute("UPDATE orders SET status=%s WHERE order_id=%s", (status, order_id))
+            set_clause = ", ".join(f"{key}=%s" for key in updates.keys())
+            values = list(updates.values()) + [order_id]
+            sql = f"UPDATE orders SET {set_clause} WHERE order_id=%s"
+            cursor.execute(sql, tuple(values))
             conn.commit()
-            logger.info(f"Order {order_id} status updated to {status}")
-            return {"status": "success", "message": "Order status updated"}
-
+            logger.info(f"Order {order_id} updated with {updates}")
+            return {"status": "success", "message": "Order updated"}
         except Exception as e:
-            logger.error(f"Error updating order status {order_id}: {e}")
+            logger.error(f"Error updating order {order_id}: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
@@ -178,11 +126,10 @@ class OrdersAPI:
 
     def delete(self, order_id):
         """
-        Delete an order (and its items via trigger).
+        Delete an order.
         """
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in delete()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor()
@@ -191,9 +138,36 @@ class OrdersAPI:
             conn.commit()
             logger.info(f"Order deleted: {order_id}")
             return {"status": "success", "message": "Order deleted"}
-
         except Exception as e:
             logger.error(f"Error deleting order {order_id}: {e}")
+            return {"status": "error", "message": str(e)}
+        finally:
+            cursor.close()
+            conn.close()
+
+    def search(self, by, query):
+        """
+        Search orders by any allowed field.
+        """
+        allowed_fields = ["order_id", "customer_id", "order_status", "order_date"]
+        if by not in allowed_fields:
+            return {"status": "error", "message": f"Invalid search field '{by}'"}
+
+        conn = get_connection()
+        if not conn:
+            return {"status": "error", "message": "DB connection failed"}
+
+        cursor = conn.cursor(dictionary=True)
+        try:
+            sql = f"SELECT * FROM orders WHERE {by} LIKE %s"
+            cursor.execute(sql, (f"%{query}%",))
+            results = cursor.fetchall()
+            for r in results:
+                r["order_date"] = format_date(r.get("order_date"))
+            logger.info(f"Search '{query}' in '{by}' → {len(results)} results")
+            return {"status": "success", "data": results}
+        except Exception as e:
+            logger.error(f"Error searching orders: {e}")
             return {"status": "error", "message": str(e)}
         finally:
             cursor.close()

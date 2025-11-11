@@ -10,75 +10,50 @@ from backend.models.payment_model import PaymentModel
 class PaymentsAPI:
     """
     Local API class to manage payments using PaymentModel.
-    Supports CRUD + validation + status updates.
+    Supports CRUD, validation, and flexible search.
     """
 
-    def get_all(self, order_id=None, status=None):
+    def search(self, field=None, value=None):
         """
-        Returns all payments, optionally filtered by order_id or payment_status
+        Flexible search for payments.
+        If no field/value provided → returns all payments.
+        If field provided → filters dynamically.
         """
+        allowed_fields = ["payment_id", "order_id", "payment_method", "payment_status", "transaction_id", "amount"]
+
         conn = get_connection()
         if not conn:
-            logger.error("DB connection failed in get_all()")
+            logger.error("DB connection failed in search()")
             return {"status": "error", "message": "DB connection failed"}
 
         cursor = conn.cursor(dictionary=True)
         try:
-            query = "SELECT * FROM payments WHERE 1=1"
-            params = []
+            if not field or not value:
+                query = "SELECT * FROM payments"
+                params = ()
+            else:
+                if field not in allowed_fields:
+                    return {"status": "error", "message": f"Invalid search field '{field}'"}
+                query = f"SELECT * FROM payments WHERE {field} LIKE %s"
+                params = (f"%{value}%",)
 
-            if order_id:
-                query += " AND order_id=%s"
-                params.append(order_id)
-            if status:
-                query += " AND payment_status=%s"
-                params.append(status)
-
-            cursor.execute(query, tuple(params))
+            cursor.execute(query, params)
             rows = cursor.fetchall()
             payments = [PaymentModel.from_db_row(row).to_dict() for row in rows]
-            logger.info(f"Fetched {len(payments)} payments")
+            logger.info(f"Search in payments by {field or 'ALL'}='{value or ''}' → {len(payments)} results")
             return {"status": "success", "data": payments}
 
         except Exception as e:
-            logger.error(f"Error fetching payments: {e}")
+            logger.error(f"Error searching payments: {e}")
             return {"status": "error", "message": str(e)}
-        finally:
-            cursor.close()
-            conn.close()
 
-    def get_by_id(self, payment_id):
-        """
-        Fetch a single payment by ID
-        """
-        conn = get_connection()
-        if not conn:
-            logger.error("DB connection failed in get_by_id()")
-            return {"status": "error", "message": "DB connection failed"}
-
-        cursor = conn.cursor(dictionary=True)
-        try:
-            cursor.execute("SELECT * FROM payments WHERE payment_id=%s", (payment_id,))
-            row = cursor.fetchone()
-            if not row:
-                logger.warning(f"Payment not found: {payment_id}")
-                return {"status": "error", "message": "Payment not found"}
-
-            payment = PaymentModel.from_db_row(row)
-            payment.payment_date = format_date(payment.payment_date)
-            logger.info(f"Payment fetched: {payment_id}")
-            return {"status": "success", "data": payment.to_dict()}
-
-        except Exception as e:
-            logger.error(f"Error fetching payment {payment_id}: {e}")
-            return {"status": "error", "message": str(e)}
         finally:
             cursor.close()
             conn.close()
 
     def add(self, payment_data):
         """
-        Add a payment for an order.
+        Add a new payment.
         Required: order_id, amount
         Optional: payment_method, payment_status, transaction_id
         """
@@ -108,7 +83,7 @@ class PaymentsAPI:
             if amount > total_amount:
                 return {"status": "error", "message": "Payment amount exceeds order total"}
 
-            # Insert payment
+            # Insert new payment
             cursor.execute("""
                 INSERT INTO payments (order_id, payment_method, amount, payment_status, transaction_id)
                 VALUES (%s, %s, %s, %s, %s)
@@ -125,16 +100,18 @@ class PaymentsAPI:
         except Exception as e:
             logger.error(f"Error adding payment: {e}")
             return {"status": "error", "message": str(e)}
+
         finally:
             cursor.close()
             conn.close()
 
     def update_status(self, payment_id, payment_status):
         """
-        Update the status of a payment
+        Update payment status
         """
-        if payment_status not in ['Success', 'Pending', 'Failed', 'Cancelled']:
-            return {"status": "error", "message": "Invalid payment_status"}
+        valid_status = ['Success', 'Pending', 'Failed', 'Cancelled']
+        if payment_status not in valid_status:
+            return {"status": "error", "message": f"Invalid payment_status '{payment_status}'"}
 
         conn = get_connection()
         if not conn:
@@ -143,7 +120,8 @@ class PaymentsAPI:
 
         cursor = conn.cursor()
         try:
-            cursor.execute("UPDATE payments SET payment_status=%s WHERE payment_id=%s", (payment_status, payment_id))
+            cursor.execute("UPDATE payments SET payment_status=%s WHERE payment_id=%s",
+                           (payment_status, payment_id))
             conn.commit()
             logger.info(f"Payment {payment_id} status updated to {payment_status}")
             return {"status": "success", "message": "Payment status updated"}
@@ -151,6 +129,7 @@ class PaymentsAPI:
         except Exception as e:
             logger.error(f"Error updating payment {payment_id}: {e}")
             return {"status": "error", "message": str(e)}
+
         finally:
             cursor.close()
             conn.close()
@@ -174,6 +153,7 @@ class PaymentsAPI:
         except Exception as e:
             logger.error(f"Error deleting payment {payment_id}: {e}")
             return {"status": "error", "message": str(e)}
+
         finally:
             cursor.close()
             conn.close()
