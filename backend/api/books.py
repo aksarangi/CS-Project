@@ -33,7 +33,7 @@ class BookAPI:
             rows = cursor.fetchall()
             books = [BookModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Fetched {len(books)} books")
-            return {"status": "success", "data": books}
+            return {"status": "success","message":"Fetched all books", "data": books}
         except Exception as e:
             logger.error(f"Error fetching books: {e}")
             return {"status": "error", "message": str(e)}
@@ -65,7 +65,7 @@ class BookAPI:
 
             book = BookModel.from_db_row(row).to_dict()
             logger.info(f"Book fetched: {book_id}")
-            return {"status": "success", "data": book}
+            return {"status": "success","message":"Fetched book by id", "data": book}
         except Exception as e:
             logger.error(f"Error fetching book {book_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -92,6 +92,7 @@ class BookAPI:
         publication_year = safe_get(book_data, "publication_year")
         language = safe_get(book_data, "language", "English")
         stock = safe_get(book_data, "stock", 0)
+        description = safe_get(book_data, "description", "")
 
         if isbn and not is_valid_isbn(isbn):
             return {"status": "error", "message": "Invalid ISBN format"}
@@ -106,16 +107,29 @@ class BookAPI:
         cursor = conn.cursor()
         try:
             cursor.execute("""
-                INSERT INTO books (title, isbn, author_id, publisher_id, genre, publication_year, language, price, stock)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                INSERT INTO books (title, isbn, author_id, publisher_id, genre, publication_year, language, price, stock, description)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (
                 title, isbn, author_id, publisher_id, genre,
-                publication_year, language, round_price(price), stock
+                publication_year, language, round_price(price), stock,description
             ))
             conn.commit()
             book_id = cursor.lastrowid
             logger.info(f"Book added: {book_id} - {title}")
-            return {"status": "success", "message": "Book added", "book_id": book_id}
+            new_book = BookModel(
+                book_id=book_id,
+                title=title,
+                author_id=author_id,
+                publisher_id=publisher_id,
+                price=price,
+                isbn=isbn,
+                category_id=genre,
+                publication_year=publication_year,
+                language=language,
+                stock=stock
+                description=description
+            )
+            return {"status": "success", "message": "Book added", "data": new_book.to_dict()}
         except Exception as e:
             logger.error(f"Error adding book: {e}")
             return {"status": "error", "message": str(e)}
@@ -155,7 +169,8 @@ class BookAPI:
             cursor.execute(query, values)
             conn.commit()
             logger.info(f"Book updated: {book_id}")
-            return {"status": "success", "message": "Book updated"}
+            updated_book = self.get_by_id(book_id)
+            return {"status": "success", "message": "Book updated", "data": updated_book.get("data")}
         except Exception as e:
             logger.error(f"Error updating book {book_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -176,7 +191,7 @@ class BookAPI:
             cursor.execute("DELETE FROM books WHERE book_id=%s", (book_id,))
             conn.commit()
             logger.info(f"Book deleted: {book_id}")
-            return {"status": "success", "message": "Book deleted"}
+            return {"status": "success", "message": "Book deleted", "data": book_id}
         except Exception as e:
             logger.error(f"Error deleting book {book_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -250,7 +265,7 @@ class BookAPI:
             rows = cursor.fetchall()
             books = [BookModel.from_db_row(r).to_dict() for r in rows]
             logger.info(f"Search returned {len(books)} books (field={field}, query={query})")
-            return {"status": "success", "data": books}
+            return {"status": "success","message":"Search Results", "data": books}
         except Exception as e:
             logger.error(f"Error searching books: {e}")
             return {"status": "error", "message": str(e)}

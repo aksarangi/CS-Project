@@ -10,9 +10,9 @@ class OrdersAPI:
     Supports CRUD + search.
     """
 
-    def get_all(self, customer_id=None, status=None):
+    def get_all(self):
         """
-        Returns all orders, optionally filtered by customer_id or status.
+        Returns all orders.
         """
         conn = get_connection()
         if not conn:
@@ -21,21 +21,12 @@ class OrdersAPI:
         cursor = conn.cursor(dictionary=True)
         try:
             query = "SELECT * FROM orders WHERE 1=1"
-            params = []
-
-            if customer_id:
-                query += " AND customer_id=%s"
-                params.append(customer_id)
-            if status:
-                query += " AND order_status=%s"
-                params.append(status)
-
-            cursor.execute(query, tuple(params))
+            cursor.execute(query)
             orders = cursor.fetchall()
             for o in orders:
                 o["order_date"] = format_date(o.get("order_date"))
             logger.info(f"Fetched {len(orders)} orders")
-            return {"status": "success", "data": orders}
+            return {"status": "success", "message":"Fetched all orders", "data": [OrderModel.from_db_row(order).to_dict() for order in orders]}
         except Exception as e:
             logger.error(f"Error fetching orders: {e}")
             return {"status": "error", "message": str(e)}
@@ -57,7 +48,7 @@ class OrdersAPI:
             order = cursor.fetchone()
             if order:
                 order["order_date"] = format_date(order.get("order_date"))
-                return {"status": "success", "data": order}
+                return {"status": "success","message":"Fetched order by id", "data": OrderModel.from_db_row(order).to_dict()}
             else:
                 return {"status": "error", "message": "Order not found"}
         except Exception as e:
@@ -88,7 +79,7 @@ class OrdersAPI:
             conn.commit()
             order_id = cursor.lastrowid
             logger.info(f"Order added: {order_id}")
-            return {"status": "success", "message": "Order added", "order_id": order_id}
+            return {"status": "success", "message": "Order added", "data": self.get_by_id(order_id).get("data")}
         except Exception as e:
             logger.error(f"Error adding order: {e}")
             return {"status": "error", "message": str(e)}
@@ -116,7 +107,7 @@ class OrdersAPI:
             cursor.execute(sql, tuple(values))
             conn.commit()
             logger.info(f"Order {order_id} updated with {updates}")
-            return {"status": "success", "message": "Order updated"}
+            return {"status": "success", "message": "Order updated", "data": self.get_by_id(order_id).get("data")}
         except Exception as e:
             logger.error(f"Error updating order {order_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -137,7 +128,7 @@ class OrdersAPI:
             cursor.execute("DELETE FROM orders WHERE order_id=%s", (order_id,))
             conn.commit()
             logger.info(f"Order deleted: {order_id}")
-            return {"status": "success", "message": "Order deleted"}
+            return {"status": "success", "message": "Order deleted", "data": order_id}
         except Exception as e:
             logger.error(f"Error deleting order {order_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -165,7 +156,8 @@ class OrdersAPI:
             for r in results:
                 r["order_date"] = format_date(r.get("order_date"))
             logger.info(f"Search '{query}' in '{by}' → {len(results)} results")
-            return {"status": "success", "data": results}
+            result=[OrderModel.from_db_row(order).to_dict() for order in results]
+            return {"status": "success","message":"Search results" "data": result}
         except Exception as e:
             logger.error(f"Error searching orders: {e}")
             return {"status": "error", "message": str(e)}

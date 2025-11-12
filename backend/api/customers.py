@@ -13,12 +13,9 @@ class CustomersAPI:
     Provides CRUD + search functionality.
     """
 
-    def get_all(self, search=None, city=None, state=None):
+    def get_all(self):
         """
-        Returns all customers with optional filters:
-        - search: match in full_name or email
-        - city
-        - state
+        Returns all customers
         """
         conn = get_connection()
         if not conn:
@@ -28,23 +25,11 @@ class CustomersAPI:
         cursor = conn.cursor(dictionary=True)
         try:
             query = "SELECT * FROM customers WHERE 1=1"
-            params = []
-
-            if search:
-                query += " AND (full_name LIKE %s OR email LIKE %s)"
-                params.extend([f"%{search}%", f"%{search}%"])
-            if city:
-                query += " AND city=%s"
-                params.append(city)
-            if state:
-                query += " AND state=%s"
-                params.append(state)
-
-            cursor.execute(query, tuple(params))
+            cursor.execute(query)
             rows = cursor.fetchall()
             customers = [CustomerModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Fetched {len(customers)} customers")
-            return {"status": "success", "data": customers}
+            return {"status": "success","message":"Fetched all customers" "data": customers}
 
         except Exception as e:
             logger.error(f"Error fetching customers: {e}")
@@ -70,7 +55,7 @@ class CustomersAPI:
             if row:
                 customer = CustomerModel.from_db_row(row)
                 logger.info(f"Customer fetched: {customer_id}")
-                return {"status": "success", "data": customer.to_dict()}
+                return {"status": "success","message":"Fetched customer by id" "data": customer.to_dict()}
             else:
                 logger.warning(f"Customer not found: {customer_id}")
                 return {"status": "error", "message": "Customer not found"}
@@ -189,7 +174,7 @@ class CustomersAPI:
             cursor.execute("DELETE FROM customers WHERE customer_id=%s", (customer_id,))
             conn.commit()
             logger.info(f"Customer deleted: {customer_id}")
-            return {"status": "success", "message": "Customer deleted"}
+            return {"status": "success", "message": "Customer deleted", "data":customer_id}
 
         except Exception as e:
             logger.error(f"Error deleting customer {customer_id}: {e}")
@@ -232,7 +217,7 @@ class CustomersAPI:
             rows = cursor.fetchall()
             customers = [CustomerModel.from_db_row(r).to_dict() for r in rows]
             logger.info(f"Search '{value}' in '{by}': {len(customers)} results")
-            return {"status": "success", "data": customers}
+            return {"status": "success", "message":"Search results" "data": customers}
 
         except Exception as e:
             logger.error(f"Error in search_customers(by={by}, value={value}): {e}")

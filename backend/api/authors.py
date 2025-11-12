@@ -31,7 +31,7 @@ class AuthorsAPI:
             authors = [AuthorModel.from_db_row(row).to_dict() for row in authors_rows]
 
             logger.info(f"Fetched {len(authors)} authors from database")
-            return {"status": "success", "data": authors}
+            return {"status": "success","message":"Fetched all authors", "data": authors}
 
         except Exception as e:
             logger.error(f"Error fetching authors: {e}")
@@ -57,7 +57,7 @@ class AuthorsAPI:
             if row:
                 author = AuthorModel.from_db_row(row)
                 logger.info(f"Author fetched: {author_id}")
-                return {"status": "success", "data": author.to_dict()}
+                return {"status": "success", "message":"Fetched author by id", "data": author.to_dict()}
             else:
                 logger.warning(f"Author not found: {author_id}")
                 return {"status": "error", "message": "Author not found"}
@@ -167,7 +167,7 @@ class AuthorsAPI:
             cursor.execute("DELETE FROM authors WHERE author_id=%s", (author_id,))
             conn.commit()
             logger.info(f"Author deleted: {author_id}")
-            return {"status": "success", "message": "Author deleted"}
+            return {"status": "success", "message": "Author deleted", "data": author_id}
 
         except Exception as e:
             logger.error(f"Error deleting author {author_id}: {e}")
@@ -225,7 +225,7 @@ class AuthorsAPI:
             authors = [AuthorModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Search returned {len(authors)} authors (field={field}, query={query})")
 
-            return {"status": "success", "data": authors}
+            return {"status": "success","message":"Fetched matching authors in search results", "data": authors}
 
         except Exception as e:
             logger.error(f"Error searching authors: {e}")
