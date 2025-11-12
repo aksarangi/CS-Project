@@ -9,21 +9,27 @@ All API classes return JSON objects with a standard structure:
   "data": {} , []
 }
 ```
-
+errors return only
+```json
+{
+  "status": "error",
+  "message": "Error message"
+}
+```
 ---
 
 ## 1. **CategoriesAPI**
 
 Manage book categories.  
-Returns refers to the `data` value in the standard json return statement.
+Returns refers to the `data:` value in the standard json return statement.
 
 | Method                               | Description                   | Parameters                                                             | Returns                  |
 | ------------------------------------ | ----------------------------- | ---------------------------------------------------------------------- | ------------------------ |
-| `get_all()`                         | Fetch all categories.         | NONE         | List object containing Dictionary objects (List of all categories) |
-| `get_by_id(category_id)`             | Fetch a single category by ID | `category_id`                                                          | Dictionary object (fetched category)         |
-| `add(category_data)`                 | Add a new category            | `category_data`: `{name: str (required), description: str (optional)}` |Dictionary object (new category)   |
-| `update(category_id, category_data)` | Update category fields        | `category_id`, `category_data`                                         | Dictionary object (updated category)         |
-| `delete(category_id)`                | Delete a category             | `category_id`                                                          | category id          |
+| `get_all()`                         | Fetch all categories.         | NONE         | List of JSON-serializable dictionaries of all categories |
+| `get_by_id(category_id)`             | Fetch a single category by ID | `category_id`                                                          | JSON-serializable dictionary of categotry details|
+| `add(category_data)`                 | Add a new category            | `category_data`: `{name: str (required), description: str (optional)}` |JSON-serializable dictionary of the new category   |
+| `update(category_id, category_data)` | Update category fields        | `category_id`, `category_data`                                         | JSON-serializable dictionary of the updated category         |
+| `delete(category_id)`                | Delete a category             | `category_id`                                                          | category id of the deleted category|
 
 ---
 
@@ -33,12 +39,12 @@ Manage customers.
 
 | Method                                        | Description                               | Parameters                                                                                               | Returns                    |
 | --------------------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `get_all(search=None, city=None, state=None)` | Fetch all customers with optional filters | `search`, `city`, `state` (optional)                                                                     | List of customer objects   |
-| `get_by_id(customer_id)`                      | Fetch a customer by ID                    | `customer_id`                                                                                            | Customer object            |
-| `add(customer_data)`                          | Add a new customer                        | `customer_data`: `{full_name: str (required), email, phone, address, city, state, country, postal_code}` | Newly created customer     |
-| `update(customer_id, customer_data)`          | Update customer information               | `customer_id`, `customer_data`                                                                           | Updated customer           |
-| `delete(customer_id)`                         | Delete a customer                         | `customer_id`                                                                                            | Success message            |
-| `search_customers(by="any", value=None)`      | Flexible search                           | `by`: `'full_name'`, `'email'`, `'city'`, `'state'`, `'any'`; `value`                                    | List of matching customers |
+| `get_all(search=None, city=None, state=None)` | Fetch all customers | NONE                                                                     | List of JSON-serializable dictionaries of all customers|
+| `get_by_id(customer_id)`                      | Fetch a customer by ID                    | `customer_id`                                                                                            |JSON-serializable dictionary of the customer details|
+| `add(customer_data)`                          | Add a new customer                        | `customer_data`: `{full_name: str (required), email, phone, address, city, state, country, postal_code}` | JSON-serializable dictionary of the newly created customer details     |
+| `update(customer_id, customer_data)`          | Update customer information               | `customer_id`, `customer_data`                                                                           | JSON-serializable dictionary of details of the updated customer           |
+| `delete(customer_id)`                         | Delete a customer                         | `customer_id`                                                                                            | Customer_id of deleted customer|
+| `search_customers(by="any", value=None)`      | Flexible search                           | `by`: either of `'full_name'`, `'email'`, `'city'`, `'state'`, `'any'`; `value`| List of JSON-serializable dictionaries of matching customers |
 
 ---
 
@@ -48,12 +54,12 @@ Manage orders.
 
 | Method                                   | Description          | Parameters                                                                                       | Returns                 |
 | ---------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------ | ----------------------- |
-| `get_all(customer_id=None, status=None)` | Fetch all orders     | `customer_id`, `status` (optional)                                                               | List of order objects   |
-| `get_by_id(order_id)`                    | Fetch a single order | `order_id`                                                                                       | Order object            |
-| `add(order_data)`                        | Add a new order      | `order_data`: `{customer_id: int, total_amount: float (optional), order_status: str (optional)}` | Newly created order ID  |
-| `update(order_id, updates)`              | Update order fields  | `order_id`, `updates`                                                                            | Success message         |
-| `delete(order_id)`                       | Delete an order      | `order_id`                                                                                       | Success message         |
-| `search(by, query)`                      | Search orders        | `by`: `'order_id'`, `'customer_id'`, `'order_status'`, `'order_date'`; `query`                   | List of matching orders |
+| `get_all()` | Fetch all orders     | NONE| List of JSON-serializable dictionaries of all orders|
+| `get_by_id(order_id)`                    | Fetch a single order | `order_id`                                                                                       |JSON-serializable dictionary of order|
+| `add(order_data)`                        | Add a new order      | `order_data`: `{customer_id: int, total_amount: float (optional), order_status: str (optional)}` |JSON-serializable dictionary of the newly created order|
+| `update(order_id, updates)`              | Update order fields  | `order_id`, `updates`                                                                            | JSON-serializable dictionary of details of the updated order |
+| `delete(order_id)`                       | Delete an order      | `order_id`                                                                                       | order id deleted order  |
+| `search(by, query)`                      | Search orders        | `by`: either of `'order_id'`, `'customer_id'`, `'order_status'`, `'order_date'`; `query`                   | List of JSON-serializable dictionaries of matching orders |
 
 ---
 
@@ -161,4 +167,5 @@ Manage books.
 This documentation provides a **complete roadmap** for building a GUI frontend: forms, tables, filters, reports, and dashboards for books, authors, categories, orders, payments, publishers, staff, and inventory management.
 
 It’s beginner-friendly, yet detailed enough for professional use.
+
 
