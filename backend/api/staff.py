@@ -14,7 +14,7 @@ class StaffAPI:
     Provides CRUD + authentication + role management + search.
     """
 
-    def get_all(self, role=None):
+    def get_all(self):
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in get_all()")
@@ -23,16 +23,11 @@ class StaffAPI:
         cursor = conn.cursor(dictionary=True)
         try:
             query = "SELECT staff_id, username, full_name, role, email, created_at FROM staff WHERE 1=1"
-            params = []
-            if role:
-                query += " AND role=%s"
-                params.append(role)
-
-            cursor.execute(query, tuple(params))
+            cursor.execute(query)
             rows = cursor.fetchall()
             staff_list = [StaffModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Fetched {len(staff_list)} staff users")
-            return {"status": "success", "data": staff_list}
+            return {"status": "success","message":"Fetched all staff data", "data": staff_list}
         except Exception as e:
             logger.error(f"Error fetching staff: {e}")
             return {"status": "error", "message": str(e)}
@@ -53,7 +48,7 @@ class StaffAPI:
             if row:
                 staff = StaffModel.from_db_row(row).to_dict()
                 logger.info(f"Staff fetched: {staff_id}")
-                return {"status": "success", "data": staff}
+                return {"status": "success","message":"Fetched staff data by id", "data": staff}
             else:
                 logger.warning(f"Staff not found: {staff_id}")
                 return {"status": "error", "message": "Staff not found"}
@@ -147,7 +142,7 @@ class StaffAPI:
             cursor.execute("DELETE FROM staff WHERE staff_id=%s", (staff_id,))
             conn.commit()
             logger.info(f"Staff deleted: {staff_id}")
-            return {"status": "success", "message": "Staff deleted"}
+            return {"status": "success", "message": "Staff deleted"," data": staff_id}
         except Exception as e:
             logger.error(f"Error deleting staff {staff_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -167,7 +162,7 @@ class StaffAPI:
             row = cursor.fetchone()
             if row and bcrypt.checkpw(password.encode('utf-8'), row['password_hash'].encode('utf-8')):
                 logger.info(f"Staff authenticated: {username}")
-                return {"status": "success", "staff_id": row['staff_id'], "role": row['role']}
+                return {"status": "success", "mssage":"Authenticated Successfully","data":{"staff_id": row['staff_id'], "role": row['role']}}
             else:
                 logger.warning(f"Authentication failed for: {username}")
                 return {"status": "error", "message": "Invalid username or password"}
@@ -202,7 +197,7 @@ class StaffAPI:
             rows = cursor.fetchall()
             data = [StaffModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Staff search: by={by}, query={query}, results={len(data)}")
-            return {"status": "success", "data": data}
+            return {"status": "success","message":"Search results" "data": data}
         except Exception as e:
             logger.error(f"Error in staff search by {by}: {e}")
             return {"status": "error", "message": str(e)}

@@ -46,7 +46,7 @@ class PublishersAPI:
             if row:
                 publisher = PublisherModel.from_db_row(row).to_dict()
                 logger.info(f"Publisher fetched: {publisher_id}")
-                return {"status": "success", "data": publisher}
+                return {"status": "success","message":"Fetched Publisher by id", "data": publisher}
             else:
                 logger.warning(f"Publisher not found: {publisher_id}")
                 return {"status": "error", "message": "Publisher not found"}
@@ -112,8 +112,8 @@ class PublishersAPI:
             cursor.execute(query, values)
             conn.commit()
 
-            cursor.execute("SELECT * FROM publishers WHERE publisher_id=%s", (publisher_id,))
-            row = cursor.fetchone()
+            updated=self.get_by_id(publisher_id)  # Refresh data
+            row = updated.get("data")
             publisher = PublisherModel.from_db_row(row).to_dict() if row else None
 
             logger.info(f"Publisher updated: {publisher_id}")
@@ -136,7 +136,7 @@ class PublishersAPI:
             cursor.execute("DELETE FROM publishers WHERE publisher_id=%s", (publisher_id,))
             conn.commit()
             logger.info(f"Publisher deleted: {publisher_id}")
-            return {"status": "success", "message": "Publisher deleted"}
+            return {"status": "success", "message": "Publisher deleted", "data": publisher_id}
         except Exception as e:
             logger.error(f"Error deleting publisher {publisher_id}: {e}")
             return {"status": "error", "message": str(e)}
@@ -166,7 +166,7 @@ class PublishersAPI:
             rows = cursor.fetchall()
             results = [PublisherModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Search by {field}: '{query}' → {len(results)} results")
-            return {"status": "success", "data": results}
+            return {"status": "success","message":"Search results" "data": results}
         except Exception as e:
             logger.error(f"Error in dynamic search: {e}")
             return {"status": "error", "message": str(e)}

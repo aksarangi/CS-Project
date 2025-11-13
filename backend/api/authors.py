@@ -225,7 +225,7 @@ class AuthorsAPI:
             authors = [AuthorModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Search returned {len(authors)} authors (field={field}, query={query})")
 
-            return {"status": "success","message":"Fetched matching authors in search results", "data": authors}
+            return {"status": "success","message": "search results", "data": authors}
 
         except Exception as e:
             logger.error(f"Error searching authors: {e}")
