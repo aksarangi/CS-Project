@@ -69,10 +69,10 @@ Manage payments.
 
 | Method                                      | Description           | Parameters                                                                                       | Returns                      |
 | ------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------- |
-| `search(field=None, value=None)`            | Search payments       | `field`: any payment column; `value`                                                             | List of matching payments    |
-| `add(payment_data)`                         | Add a new payment     | `payment_data`: `{order_id: int, amount: float, payment_method, payment_status, transaction_id}` | Newly created payment object |
-| `update_status(payment_id, payment_status)` | Update payment status | `payment_id`, `payment_status`: `'Success', 'Pending', 'Failed', 'Cancelled'`                    | Success message              |
-| `delete(payment_id)`                        | Delete a payment      | `payment_id`                                                                                     | Success message              |
+| `search(field=None, value=None)`            | Search payments       | `field`: any payment column; `value`|List of JSON-serializable dictionaries of all payments|
+| `add(payment_data)`                         | Add a new payment     | `payment_data`: `{order_id: int, amount: float, payment_method, payment_status, transaction_id}` | JSON-serializable dictionary of the newly created orderJSON-serializable dictionary of the newly created payment|
+| `update_status(payment_id, payment_status)`| Update payment status | `payment_id`, `payment_status`: `'Success', 'Pending', 'Failed', 'Cancelled'`| JSON-serializable dictionary of details of the updated payment status|
+| `delete(payment_id)`| Delete a payment| `payment_id`|payment id of payment order|
 
 ---
 
@@ -82,12 +82,12 @@ Manage publishers.
 
 | Method                                 | Description             | Parameters                                                                 | Returns                     |
 | -------------------------------------- | ----------------------- | -------------------------------------------------------------------------- | --------------------------- |
-| `get_all(search=None)`                 | Fetch all publishers    | `search` (optional)                                                        | List of publishers          |
-| `get_by_id(publisher_id)`              | Fetch a publisher by ID | `publisher_id`                                                             | Publisher object            |
-| `add(publisher_data)`                  | Add a new publisher     | `publisher_data`: `{name: str (required), location, contact_email, phone}` | Newly created publisher     |
-| `update(publisher_id, publisher_data)` | Update publisher        | `publisher_id`, `publisher_data`                                           | Updated publisher           |
-| `delete(publisher_id)`                 | Delete a publisher      | `publisher_id`                                                             | Success message             |
-| `search_by(field, query)`              | Dynamic search          | `field`: `'name'`, `'location'`, `'contact_email'`, `'phone'`; `query`     | List of matching publishers |
+| `get_all()`| Fetch all publishers| NONE|List of JSON-serializable dictionaries of all publishers|
+| `get_by_id(publisher_id)`| Fetch a publisher by ID | `publisher_id`| Publisher object|
+| `add(publisher_data)`| Add a new publisher| `publisher_data`: `{name: str (required), location, contact_email, phone}`| Newly created publisher|
+| `update(publisher_id, publisher_data)`| Update publisher|`publisher_id`, `publisher_data`| Updated publisher|
+| `delete(publisher_id)`| Delete a publisher| `publisher_id`| Success message|
+| `search_by(field, query)`| Dynamic search| `field`: `'name'`, `'location'`, `'contact_email'`, `'phone'`; `query`| List of matching publishers |
 
 ---
 
@@ -167,5 +167,6 @@ Manage books.
 This documentation provides a **complete roadmap** for building a GUI frontend: forms, tables, filters, reports, and dashboards for books, authors, categories, orders, payments, publishers, staff, and inventory management.
 
 It’s beginner-friendly, yet detailed enough for professional use.
+
 
 
