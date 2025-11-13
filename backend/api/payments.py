@@ -41,7 +41,7 @@ class PaymentsAPI:
             rows = cursor.fetchall()
             payments = [PaymentModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Search in payments by {field or 'ALL'}='{value or ''}' → {len(payments)} results")
-            return {"status": "success", "data": payments}
+            return {"status": "success","message":"Search Results", "data": payments}
 
         except Exception as e:
             logger.error(f"Error searching payments: {e}")
@@ -124,7 +124,7 @@ class PaymentsAPI:
                            (payment_status, payment_id))
             conn.commit()
             logger.info(f"Payment {payment_id} status updated to {payment_status}")
-            return {"status": "success", "message": "Payment status updated"}
+            return {"status": "success", "message": "Payment status updated", "data": self.search("payment_id", payment_id).get("data",[])[0].to_dict()}
 
         except Exception as e:
             logger.error(f"Error updating payment {payment_id}: {e}")
@@ -148,7 +148,7 @@ class PaymentsAPI:
             cursor.execute("DELETE FROM payments WHERE payment_id=%s", (payment_id,))
             conn.commit()
             logger.info(f"Payment deleted: {payment_id}")
-            return {"status": "success", "message": "Payment deleted"}
+            return {"status": "success", "message": "Payment deleted", "data":payment_id}
 
         except Exception as e:
             logger.error(f"Error deleting payment {payment_id}: {e}")

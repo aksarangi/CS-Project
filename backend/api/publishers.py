@@ -12,7 +12,7 @@ class PublishersAPI:
     Provides CRUD + dynamic search functionality.
     """
 
-    def get_all(self, search=None):
+    def get_all(self):
         conn = get_connection()
         if not conn:
             logger.error("DB connection failed in get_all()")
@@ -20,16 +20,12 @@ class PublishersAPI:
 
         cursor = conn.cursor(dictionary=True)
         try:
-            if search:
-                query = "SELECT * FROM publishers WHERE name LIKE %s OR location LIKE %s"
-                cursor.execute(query, (f"%{search}%", f"%{search}%"))
-            else:
-                query = "SELECT * FROM publishers"
-                cursor.execute(query)
+            query = "SELECT * FROM publishers"
+            cursor.execute(query)
             rows = cursor.fetchall()
             publishers = [PublisherModel.from_db_row(row).to_dict() for row in rows]
             logger.info(f"Fetched {len(publishers)} publishers")
-            return {"status": "success", "data": publishers}
+            return {"status": "success","message":"Fetched all publishers" "data": publishers}
         except Exception as e:
             logger.error(f"Error fetching publishers: {e}")
             return {"status": "error", "message": str(e)}
