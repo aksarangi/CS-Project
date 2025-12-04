@@ -1,0 +1,54 @@
+BookShopManagement/
+├── backend/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── authors.py         # AuthorsAPI class (CRUD + search)
+│   │   ├── publishers.py      # PublishersAPI class (CRUD)
+│   │   ├── categories.py      # CategoriesAPI class (CRUD)
+│   │   ├── books.py           # BooksAPI class (CRUD + search + filter)
+│   │   ├── customers.py       # CustomersAPI class (CRUD)
+│   │   ├── orders.py          # OrdersAPI class (create orders, status updates)
+│   │   ├── payments.py        # PaymentsAPI class (CRUD + link to orders)
+│   │   ├── staff.py           # StaffAPI class (login/authentication, role)
+│   │   └── reports.py         # ReportsAPI class (analytics, charts, CSV export)
+│   │
+│   ├── database/
+│   │   ├── db_connection.py   # Central MySQL connection
+│   │   └── __init__.py        # Optional, to treat as module
+│   │
+│   ├── models/
+│   │   ├── book_model.py      # Optional class for Book entity
+│   │   ├── author_model.py    # Optional class for Author entity
+│   │   ├── publisher_model.py # Optional class for Publisher entity
+│   │   ├── category_model.py  # Optional class for Category entity
+│   │   ├── order_model.py     # Optional class for Order + OrderItem
+│   │   ├── customer_model.py  # Optional class for Customer
+│   │   ├── payment_model.py   # Optional class for Payment
+│   │   └── staff_model.py     # Optional class for Staff/Admin
+│   │
+│   ├── reports/
+│   │   ├── sales_summary.py   # Generate sales charts / summaries
+│   │   └── stock_report.py    # Optional stock alerts / low stock report
+│   │
+│   ├── utils/
+│   │   ├── helpers.py         # Reusable functions (calculations, formatting)
+│   │   ├── validators.py      # Input validation (ISBN, price, email, etc.)
+│   │   └── logger.py          # Logging setup (uses Python logging module)
+│   │
+│   ├── tests/
+│   │   ├── test_authors.py
+│   │   ├── test_books.py
+│   │   ├── test_customers.py
+│   │   ├── test_orders.py
+│   │   ├── test_payments.py
+│   │   └── test_users.py
+│   │
+│   └── main.py                # Optional CLI tester for all APIs
+│
+├── frontend/
+│   ├── gui.py
+│   └── assets/
+│
+├── .env                       # DB credentials and config
+├── setup_environment.bat       # Local setup + MySQL initialization
+└── README.md

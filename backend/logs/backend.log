@@ -1,0 +1,989 @@
+2025-12-01 21:46:46 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 21:46:46 - BookShopBackend - ERROR - [DB_CONNECTION_ERROR] Error connecting to MySQL: 1130: Host 'Mahan-Laptop' is not allowed to connect to this MySQL server
+2025-12-01 21:46:46 - BookShopBackend - ERROR - Database connection failed on startup!
+2025-12-01 21:46:46 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 21:46:46 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 21:48:19 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 21:48:20 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 21:48:20 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 21:48:20 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 21:48:20 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 21:48:20 - mysql.connector - INFO - plugin_name: sha256_password
+2025-12-01 21:48:20 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLSHA256PasswordAuthPlugin
+2025-12-01 21:48:20 - BookShopBackend - ERROR - [DB_CONNECTION_ERROR] Error connecting to MySQL: 1045 (28000): Access denied for user ''@'localhost' (using password: NO)
+2025-12-01 21:48:20 - BookShopBackend - ERROR - Database connection failed on startup!
+2025-12-01 21:48:20 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 21:48:20 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 21:50:45 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 21:50:45 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 21:50:45 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 21:50:45 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 21:50:45 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 21:50:45 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 21:50:45 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 21:51:03 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-01 21:51:41 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 21:51:41 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 21:51:41 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 21:51:41 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 21:51:41 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 21:51:41 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 21:51:41 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 21:52:02 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-01 22:15:42 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 22:15:42 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 22:15:42 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 22:15:42 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 22:15:42 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 22:15:42 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 22:15:42 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 22:16:01 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 22:25:15 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 22:25:15 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 22:25:15 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 22:25:15 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 22:25:15 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 22:25:15 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 22:25:15 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 22:25:32 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 22:51:33 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 22:51:33 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 22:51:33 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 22:51:33 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 22:51:33 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 22:51:33 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 22:51:33 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 22:52:00 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 22:53:13 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 22:53:13 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 22:53:13 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 22:53:13 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 22:53:13 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 22:53:13 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 22:53:13 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 22:53:34 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:01:52 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:01:52 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:01:52 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:01:52 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:01:52 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:01:52 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:01:52 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:02:21 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:02:22 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:05:37 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:05:37 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:05:37 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:05:37 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:05:37 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:05:37 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:05:37 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:05:58 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:05:59 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:06:47 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:06:47 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:06:47 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:06:47 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:06:47 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:06:47 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:06:47 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:07:07 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:07:08 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:07:16 - BookShopBackend - INFO - Search returned 1 books (field=title, query=Shiva Purana)
+2025-12-01 23:07:31 - BookShopBackend - INFO - Fetched 0 authors from database
+2025-12-01 23:09:27 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:09:27 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:09:27 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:09:27 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:09:27 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:09:27 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:09:27 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:09:45 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:09:46 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:09:49 - BookShopBackend - INFO - Fetched 0 authors from database
+2025-12-01 23:17:01 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:17:01 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:17:01 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:17:01 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:17:01 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:17:01 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:17:01 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:17:20 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:17:21 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:17:25 - BookShopBackend - INFO - Fetched 0 authors from database
+2025-12-01 23:17:33 - BookShopBackend - INFO - Search returned 0 authors (field=full_name, query=Adolf Hitler)
+2025-12-01 23:20:44 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:20:44 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:20:44 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:20:44 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:20:44 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:20:44 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:20:44 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:21:06 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:21:07 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:21:18 - BookShopBackend - INFO - Fetched 75 authors from database
+2025-12-01 23:21:26 - BookShopBackend - INFO - Search returned 0 authors (field=full_name, query=Adolf Hitler)
+2025-12-01 23:24:18 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=Adolf Hitler)
+2025-12-01 23:25:30 - BookShopBackend - INFO - Search returned 0 authors (field=full_name, query=Vikram Sarabhai)
+2025-12-01 23:25:39 - BookShopBackend - INFO - Search returned 0 authors (field=full_name, query=Homi Bhaba)
+2025-12-01 23:25:46 - BookShopBackend - INFO - Search returned 3 authors (field=full_name, query=Vyasa)
+2025-12-01 23:28:25 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:28:30 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-01 23:28:33 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:32:25 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:32:25 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:32:25 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:32:25 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:32:25 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:32:25 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:32:25 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:32:47 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:33:46 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:33:46 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:33:46 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:33:46 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:33:46 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:33:46 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:33:46 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:34:03 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:34:04 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:34:15 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-01 23:34:20 - BookShopBackend - INFO - Search returned 3 authors (field=full_name, query=Vyasa)
+2025-12-01 23:42:54 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:42:54 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:42:54 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:42:54 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:42:54 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:42:54 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:42:54 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:43:13 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:43:14 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:43:18 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-01 23:43:52 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:54:25 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:54:25 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:54:25 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:54:25 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:54:25 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:54:25 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:54:25 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:54:47 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:54:49 - BookShopBackend - ERROR - Error fetching books: BookModel.__init__() got an unexpected keyword argument 'author_name'
+2025-12-01 23:57:28 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:57:28 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:57:28 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:57:28 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:57:28 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:57:28 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:57:28 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:57:46 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:57:46 - BookShopBackend - INFO - Fetched 410 books
+2025-12-01 23:58:21 - BookShopBackend - INFO - Initializing backend system...
+2025-12-01 23:58:21 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-01 23:58:21 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-01 23:58:21 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-01 23:58:21 - BookShopBackend - INFO - Database connection successful.
+2025-12-01 23:58:21 - BookShopBackend - INFO - All API modules initialized.
+2025-12-01 23:58:21 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-01 23:58:40 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-01 23:58:40 - BookShopBackend - INFO - Fetched 410 books
+2025-12-02 00:02:26 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 00:02:28 - BookShopBackend - INFO - Fetched 413 books
+2025-12-02 00:05:19 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 00:05:24 - BookShopBackend - INFO - Fetched 390 books
+2025-12-02 00:08:55 - BookShopBackend - INFO - Fetched 390 books
+2025-12-02 00:09:02 - BookShopBackend - INFO - Fetched 0 publishers
+2025-12-02 00:09:04 - BookShopBackend - INFO - Fetched 390 books
+2025-12-02 00:12:06 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 00:12:06 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 00:12:06 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 00:12:06 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 00:12:06 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 00:12:06 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 00:12:06 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 00:12:23 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 00:12:32 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 00:13:03 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 00:13:14 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 00:30:58 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 00:30:58 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 00:30:58 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 00:30:58 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 00:30:58 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 00:30:58 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 00:30:58 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 00:31:21 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 00:32:14 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 00:32:15 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 00:32:57 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 00:32:59 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 00:34:59 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 00:34:59 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 00:34:59 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 00:34:59 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 00:34:59 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 00:34:59 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 00:34:59 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 00:35:18 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 00:35:19 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 00:35:25 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 10:36:34 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 10:36:34 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 10:36:34 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 10:36:34 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 10:36:34 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 10:36:34 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 10:36:34 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 10:36:58 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 10:36:59 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 10:58:24 - BookShopBackend - INFO - Search returned 60 books (field=language, query=sanskrit)
+2025-12-02 10:58:48 - BookShopBackend - INFO - Search returned 66 books (field=language, query=hindi)
+2025-12-02 10:58:55 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 10:59:21 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 11:03:19 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:03:19 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:03:19 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:03:19 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:03:19 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:03:19 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:03:19 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:03:36 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:03:37 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:03:43 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 11:03:45 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 11:22:40 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:22:41 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:22:41 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:22:41 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:22:41 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:22:41 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:22:41 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:22:57 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:22:58 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:27:16 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 11:27:19 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:32:06 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:32:06 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:32:06 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:32:06 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:32:06 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:32:06 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:32:06 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:32:24 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:32:25 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:33:31 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 11:33:40 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 11:35:24 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:35:24 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:35:24 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:35:24 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:35:24 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:35:24 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:35:24 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:35:42 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:35:43 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:35:48 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 11:35:56 - BookShopBackend - INFO - Search by name: 'Kitab Ghar' \u2192 1 results
+2025-12-02 11:36:12 - BookShopBackend - INFO - Search by location: 'Patna' \u2192 1 results
+2025-12-02 11:36:18 - BookShopBackend - INFO - Fetched 72 publishers
+2025-12-02 11:36:30 - BookShopBackend - INFO - Search by location: 'Kolkata' \u2192 9 results
+2025-12-02 11:36:36 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 0 results
+2025-12-02 11:36:41 - BookShopBackend - INFO - Search by location: 'USA' \u2192 14 results
+2025-12-02 11:36:49 - BookShopBackend - INFO - Search by name: '' \u2192 72 results
+2025-12-02 11:39:06 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:07 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 11:39:18 - BookShopBackend - INFO - Search by contact_email: 'None' \u2192 0 results
+2025-12-02 11:39:20 - BookShopBackend - INFO - Search by contact_email: 'None' \u2192 0 results
+2025-12-02 11:39:25 - BookShopBackend - INFO - Search by contact_email: '' \u2192 72 results
+2025-12-02 11:39:42 - BookShopBackend - INFO - Search by name: 'eher verlag' \u2192 1 results
+2025-12-02 11:39:48 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 11:39:54 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=adolf)
+2025-12-02 11:40:04 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=leader)
+2025-12-02 11:40:11 - BookShopBackend - INFO - Search returned 11 authors (field=bio, query=indian)
+2025-12-02 11:40:26 - BookShopBackend - INFO - Search returned 0 authors (field=bio, query=author of mahabharata)
+2025-12-02 11:40:36 - BookShopBackend - INFO - Search returned 3 authors (field=full_name, query=vyasa)
+2025-12-02 11:41:00 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=author of the Mahabharata)
+2025-12-02 11:41:10 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=leader)
+2025-12-02 11:41:23 - BookShopBackend - INFO - Search returned 65 authors (field=country, query=india)
+2025-12-02 11:41:33 - BookShopBackend - INFO - Search returned 9 authors (field=country, query=USA)
+2025-12-02 11:41:40 - BookShopBackend - INFO - Search returned 2 authors (field=country, query=Austria)
+2025-12-02 11:42:02 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:43:22 - BookShopBackend - ERROR - Error searching books: 1054 (42S22): Unknown column 'b.genre' in 'where clause'
+2025-12-02 11:43:26 - BookShopBackend - INFO - Search returned 288 books (field=genre, query=)
+2025-12-02 11:45:46 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:45:46 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:45:46 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:45:46 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:45:46 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:45:47 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:45:47 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:46:06 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:46:07 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:46:51 - BookShopBackend - INFO - Search returned 4 books (field=title, query=Fakir Mohan Senapati)
+2025-12-02 11:58:58 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 11:58:58 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 11:58:58 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 11:58:58 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 11:58:58 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 11:58:58 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 11:58:58 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 11:59:15 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 11:59:16 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 11:59:42 - BookShopBackend - INFO - Search returned 4 books (field=title, query=Fakir Mohan senapati)
+2025-12-02 12:05:32 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:05:33 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:05:33 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:05:33 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:05:33 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:05:33 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:05:33 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:05:50 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:05:51 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:05:59 - BookShopBackend - ERROR - Error searching books: Not enough parameters for the SQL statement
+2025-12-02 12:07:08 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:07:08 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:07:08 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:07:08 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:07:08 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:07:08 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:07:08 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:07:30 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:07:30 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:07:30 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:07:30 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:07:30 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:07:30 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:07:30 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:07:53 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:07:53 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:08:03 - BookShopBackend - ERROR - Error searching books: 1054 (42S22): Unknown column 'a.description' in 'where clause'
+2025-12-02 12:16:33 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:16:33 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:16:33 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:16:33 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:16:33 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:16:33 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:16:33 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:16:54 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:16:55 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:20:20 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:20:20 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:20:20 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:20:20 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:20:20 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:20:20 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:20:20 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:20:36 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:20:37 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:20:50 - BookShopBackend - INFO - Search request received \u2192 field=description, query=compiled
+2025-12-02 12:20:50 - BookShopBackend - INFO - Search complete: returned 3 results
+2025-12-02 12:21:13 - BookShopBackend - INFO - Search request received \u2192 field=genre, query=literature
+2025-12-02 12:21:13 - BookShopBackend - ERROR - Error during search(field=genre, query=literature): 1054 (42S22): Unknown column 'b.genre' in 'where clause'
+Traceback (most recent call last):
+  File "F:\CS Project New\CS-Project-main\backend\api\books.py", line 299, in search
+    cursor.execute(final_sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\cursor.py", line 416, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\Abheek\AppData\Roaming\Python\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'b.genre' in 'where clause'
+2025-12-02 12:24:12 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:24:13 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:24:13 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:24:13 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:24:13 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:24:13 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:24:13 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:24:39 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:24:40 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:25:07 - BookShopBackend - WARNING - Invalid search field: author
+2025-12-02 12:30:11 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:30:11 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:30:11 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:30:11 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:30:11 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:30:11 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:30:11 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:30:21 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:30:21 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:30:21 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:30:21 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:30:21 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:30:21 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:30:21 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:30:38 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:30:39 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:31:40 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:31:40 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:31:40 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:31:40 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:31:40 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:31:40 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:31:40 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:31:59 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:32:00 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:35:34 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 12:35:34 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 12:35:34 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 12:35:34 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 12:35:34 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 12:35:34 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 12:35:34 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 12:35:51 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 12:35:52 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:41:22 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 12:41:28 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 12:41:34 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 12:41:39 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 13:11:45 - BookShopBackend - INFO - Fetched 422 books
+2025-12-02 13:31:04 - BookShopBackend - INFO - Search called \u2192 field=title, query=Wings of Fire
+2025-12-02 13:31:04 - BookShopBackend - INFO - Search results \u2192 0 rows
+2025-12-02 13:32:47 - BookShopBackend - INFO - Search called \u2192 field=title, query=
+2025-12-02 13:33:33 - BookShopBackend - INFO - Search called \u2192 field=title, query=
+2025-12-02 13:34:39 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 13:34:39 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 13:34:39 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 13:34:39 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 13:34:39 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 13:34:39 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 13:34:39 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 13:34:58 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 13:43:16 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 13:43:16 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 13:43:16 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 13:43:16 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 13:43:16 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 13:43:16 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 13:43:16 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 13:43:33 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 13:48:55 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 13:48:55 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 13:48:55 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 13:48:55 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 13:48:55 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 13:48:55 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 13:48:55 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 13:49:16 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:07:12 - matplotlib.font_manager - WARNING - Matplotlib is building the font cache; this may take a moment.
+2025-12-02 16:07:14 - matplotlib.font_manager - INFO - generated new fontManager
+2025-12-02 16:11:49 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:11:50 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:11:50 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:11:50 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:11:50 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:11:50 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:11:50 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:14:43 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:14:44 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:14:44 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:14:44 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:14:44 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:14:44 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:14:44 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:15:17 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:15:17 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:15:17 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:15:17 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:15:17 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:15:17 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:15:17 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:15:34 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:22:21 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:22:21 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:22:21 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:22:21 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:22:21 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:22:21 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:22:21 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:22:44 - BookShopBackend - WARNING - Authentication failed for: admin_aks
+2025-12-02 16:22:53 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:28:07 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:28:07 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:28:07 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:28:07 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:28:07 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:28:07 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:28:07 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:28:30 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:32:45 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:32:45 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:32:45 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:32:45 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:32:45 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:32:45 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:32:45 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:33:06 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:38:50 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 16:38:58 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=Adolf Hitler)
+2025-12-02 16:39:08 - BookShopBackend - INFO - Search returned 3 authors (field=full_name, query=Vyasa)
+2025-12-02 16:39:21 - BookShopBackend - INFO - Search returned 0 authors (field=bio, query=Scientist)
+2025-12-02 16:39:27 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 16:39:43 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=Sage)
+2025-12-02 16:40:01 - BookShopBackend - INFO - Search returned 2 authors (field=country, query=Austria)
+2025-12-02 16:40:12 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 16:40:36 - BookShopBackend - INFO - Search by location: 'Germany' \u2192 1 results
+2025-12-02 16:40:52 - BookShopBackend - INFO - Search by name: 'Gitanjali' \u2192 0 results
+2025-12-02 16:41:13 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 16:41:29 - BookShopBackend - INFO - Search by name: 'Geetanjali' \u2192 1 results
+2025-12-02 16:47:06 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 16:47:06 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 16:47:06 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 16:47:06 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 16:47:06 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 16:47:06 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 16:47:06 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 16:47:24 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 16:47:37 - BookShopBackend - INFO - Search by title: 'wings of fire' \u2192 0 results
+2025-12-02 16:48:57 - BookShopBackend - INFO - Search by publisher_name: 'geetanjali' \u2192 6 results
+2025-12-02 16:49:31 - BookShopBackend - INFO - Search by isbn: '9788172346004' \u2192 1 results
+2025-12-02 17:00:23 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 17:00:23 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 17:00:23 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 17:00:23 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 17:00:24 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 17:00:24 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 17:00:24 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 17:01:14 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 17:01:24 - BookShopBackend - INFO - Search by title: 'mein kampf' \u2192 0 results
+2025-12-02 17:01:49 - BookShopBackend - INFO - Search by publisher_name: 'Geetanjali' \u2192 6 results
+2025-12-02 17:01:58 - BookShopBackend - INFO - Search by price: '710.0' \u2192 0 results
+2025-12-02 17:05:06 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 17:05:06 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 17:05:06 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 17:05:06 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 17:05:06 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 17:05:06 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 17:05:06 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 17:05:26 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 17:05:32 - BookShopBackend - INFO - Search by title: 'mein' \u2192 0 results
+2025-12-02 17:05:44 - BookShopBackend - INFO - Search by genre: 'other' \u2192 15 results
+2025-12-02 17:06:58 - BookShopBackend - INFO - Search by title: 'other' \u2192 0 results
+2025-12-02 17:07:02 - BookShopBackend - INFO - Search by price: 'other' \u2192 0 results
+2025-12-02 17:07:13 - BookShopBackend - INFO - Search by publisher_name: 'eher verlag' \u2192 0 results
+2025-12-02 17:07:18 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 17:07:20 - BookShopBackend - INFO - Search by name: 'eher verlag' \u2192 1 results
+2025-12-02 17:08:47 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 17:08:47 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 17:08:47 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 17:08:47 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 17:08:47 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 17:08:47 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 17:08:47 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 17:09:23 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 17:09:47 - BookShopBackend - INFO - Search by publisher_name: 'eher verlag' \u2192 0 results
+2025-12-02 17:10:08 - BookShopBackend - INFO - Search by publisher_name: 'geetanjali' \u2192 6 results
+2025-12-02 17:10:18 - BookShopBackend - INFO - Search by title: 'mein' \u2192 0 results
+2025-12-02 17:12:04 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 17:14:14 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=Adolf)
+2025-12-02 17:14:29 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=Sage)
+2025-12-02 17:14:52 - BookShopBackend - INFO - Search returned 9 authors (field=country, query=USA)
+2025-12-02 17:37:45 - BookShopBackend - INFO - Search by genre: 'odia' \u2192 69 results
+2025-12-02 18:13:36 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 18:13:36 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 18:13:36 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 18:13:36 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 18:13:36 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 18:13:36 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 18:13:36 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 18:13:54 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 18:14:03 - BookShopBackend - INFO - Search by title: 'mein' \u2192 0 results
+2025-12-02 18:18:32 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 18:18:32 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 18:18:32 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 18:18:32 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 18:18:32 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 18:18:32 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 18:18:32 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 18:18:51 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 18:18:52 - BookShopBackend - ERROR - Error fetching books: BookModel.__init__() got an unexpected keyword argument 'author_name'
+2025-12-02 18:19:42 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 18:19:43 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 18:19:43 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 18:19:43 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 18:19:43 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 18:19:43 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 18:19:43 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 18:19:59 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 18:20:21 - BookShopBackend - INFO - Search by title: 'mein' \u2192 0 results
+2025-12-02 18:20:35 - BookShopBackend - INFO - Search by author: 'Adolf' \u2192 0 results
+2025-12-02 18:22:27 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 18:22:27 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 18:22:27 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 18:22:27 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 18:22:27 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 18:22:27 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 18:22:27 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 18:22:44 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 18:23:18 - BookShopBackend - INFO - Search by title: 'mein' \u2192 2 results
+2025-12-02 18:23:53 - BookShopBackend - INFO - Search by author: 'Satyajit' \u2192 3 results
+2025-12-02 18:24:07 - BookShopBackend - INFO - Search by author: 'Bandhyopadhyay' \u2192 0 results
+2025-12-02 18:24:12 - BookShopBackend - INFO - Search by author: 'Bandhyopadhay' \u2192 0 results
+2025-12-02 18:24:16 - BookShopBackend - INFO - Search by author: 'Bandyopadhay' \u2192 0 results
+2025-12-02 18:24:21 - BookShopBackend - INFO - Search by author: 'Bandyopadyay' \u2192 0 results
+2025-12-02 18:24:25 - BookShopBackend - INFO - Search by author: 'Bandopadyay' \u2192 0 results
+2025-12-02 18:24:35 - BookShopBackend - INFO - Search by author: 'Bankim' \u2192 5 results
+2025-12-02 18:25:26 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 18:25:35 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=Senapati)
+2025-12-02 18:25:44 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=Sage)
+2025-12-02 18:25:54 - BookShopBackend - INFO - Search returned 2 authors (field=country, query=Austria)
+2025-12-02 18:30:08 - BookShopBackend - INFO - Initializing backend system...
+2025-12-02 18:30:08 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-02 18:30:08 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-02 18:30:08 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-02 18:30:08 - BookShopBackend - INFO - Database connection successful.
+2025-12-02 18:30:08 - BookShopBackend - INFO - All API modules initialized.
+2025-12-02 18:30:08 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-02 18:30:38 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-02 18:31:32 - BookShopBackend - INFO - Search by title: 'wings of fire' \u2192 2 results
+2025-12-02 18:31:50 - BookShopBackend - INFO - Search by genre: 'odia' \u2192 70 results
+2025-12-02 18:32:11 - BookShopBackend - INFO - Search by language: 'hindi' \u2192 70 results
+2025-12-02 18:32:29 - BookShopBackend - INFO - Search by description: 'copiled' \u2192 0 results
+2025-12-02 18:32:47 - BookShopBackend - INFO - Search by author: 'bankim' \u2192 5 results
+2025-12-02 18:33:09 - BookShopBackend - INFO - Search by author: 'geetanjali' \u2192 0 results
+2025-12-02 18:33:17 - BookShopBackend - INFO - Search by publisher_name: 'geetanjali' \u2192 6 results
+2025-12-02 18:33:27 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-02 18:33:43 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=senapati)
+2025-12-02 18:34:07 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=Sage)
+2025-12-02 18:34:33 - BookShopBackend - INFO - Search returned 2 authors (field=country, query=Austria)
+2025-12-02 18:34:47 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-02 18:35:02 - BookShopBackend - INFO - Search by name: 'geetanjali' \u2192 1 results
+2025-12-02 18:35:28 - BookShopBackend - INFO - Search by location: 'germany' \u2192 1 results
+2025-12-03 21:01:10 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 21:01:10 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 21:01:10 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 21:01:10 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 21:01:10 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 21:01:10 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 21:01:10 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 21:01:31 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 22:13:06 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 22:13:06 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 22:13:06 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 22:13:06 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 22:13:07 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 22:13:07 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 22:13:07 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 22:13:24 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 22:15:05 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 22:15:05 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 22:15:05 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 22:15:05 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 22:15:05 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 22:15:05 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 22:15:05 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 22:15:23 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 22:15:26 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 22:15:37 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 22:15:43 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 22:15:57 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 22:16:10 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 22:16:23 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 22:43:27 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 22:43:27 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 22:43:27 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 22:43:27 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 22:43:27 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 22:43:27 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 22:43:27 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 22:43:48 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 22:47:40 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 22:51:31 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 22:51:34 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 22:51:54 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 22:54:22 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 22:59:10 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 22:59:13 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:00:15 - BookShopBackend - INFO - Publisher added: 128 - Dhanpat Rai
+2025-12-03 23:00:17 - BookShopBackend - INFO - Fetched 74 publishers
+2025-12-03 23:00:38 - BookShopBackend - ERROR - Error updating publisher 128: 1054 (42S22): Unknown column 'notes' in 'field list'
+2025-12-03 23:04:23 - BookShopBackend - INFO - Fetched 74 publishers
+2025-12-03 23:04:28 - BookShopBackend - INFO - Fetched 74 publishers
+2025-12-03 23:05:04 - BookShopBackend - INFO - Publisher deleted: 128
+2025-12-03 23:05:06 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:05:15 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:05:20 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 23:05:21 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:06:38 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 23:06:47 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:06:50 - BookShopBackend - INFO - Staff search: by=username, query=Abheek Sarangi, results=0
+2025-12-03 23:06:54 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:06:55 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:11:26 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 23:11:41 - BookShopBackend - INFO - Category added: 7 - Mahan
+2025-12-03 23:11:43 - BookShopBackend - INFO - Fetched 7 categories
+2025-12-03 23:11:53 - BookShopBackend - INFO - Category updated: 7
+2025-12-03 23:11:53 - BookShopBackend - INFO - Category fetched: 7
+2025-12-03 23:11:54 - BookShopBackend - INFO - Fetched 7 categories
+2025-12-03 23:12:00 - BookShopBackend - INFO - Category deleted: 7
+2025-12-03 23:12:02 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 23:13:00 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:13:15 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 23:13:15 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 23:13:15 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 23:13:15 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 23:13:15 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 23:13:15 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 23:13:15 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 23:13:36 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 23:13:40 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:14:14 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:20:51 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:20:52 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:20:53 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:20:59 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 23:21:03 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:21:15 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 23:21:15 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 23:21:15 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 23:21:15 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 23:21:15 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 23:21:15 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 23:21:15 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 23:21:33 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 23:21:37 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:30:02 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:30:05 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:30:15 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:35:42 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:40:56 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 23:40:57 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:41:08 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 23:41:09 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 23:41:09 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 23:41:09 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 23:41:09 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 23:41:09 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 23:41:09 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 23:41:30 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 23:41:34 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:41:42 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:42:10 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 23:42:17 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:42:27 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:46:45 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 23:46:45 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 23:46:45 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 23:46:45 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 23:46:45 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 23:46:45 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 23:46:45 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 23:47:01 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 23:47:22 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:47:25 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:47:25 - BookShopBackend - INFO - Found 67 low stock books (threshold=10)
+2025-12-03 23:47:59 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:49:18 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-03 23:49:21 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:50:13 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-03 23:50:17 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:50:20 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:50:25 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 23:51:49 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:51:54 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:51:55 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:51:57 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-03 23:51:59 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-03 23:52:09 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-03 23:53:24 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-03 23:55:12 - BookShopBackend - INFO - Initializing backend system...
+2025-12-03 23:55:12 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-03 23:55:12 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-03 23:55:12 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-03 23:55:12 - BookShopBackend - INFO - Database connection successful.
+2025-12-03 23:55:12 - BookShopBackend - INFO - All API modules initialized.
+2025-12-03 23:55:12 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-03 23:55:30 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-03 23:55:36 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:10:35 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:10:35 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:10:35 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:10:35 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:10:35 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:10:35 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:10:35 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:10:57 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:11:04 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:11:04 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:20:00 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:20:00 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:20:00 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:20:00 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:20:00 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:20:00 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:20:00 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:20:20 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:20:25 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:20:25 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:22:56 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:22:56 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:22:56 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:22:56 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:22:56 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:22:56 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:22:56 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:23:16 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:23:21 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:23:21 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:30:30 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:30:30 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:30:30 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:30:30 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:30:30 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:30:30 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:30:30 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:30:50 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:30:59 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:31:06 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:32:42 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-04 00:37:48 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:37:49 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:37:49 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:37:49 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:37:49 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:37:49 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:37:49 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:38:06 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:38:57 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:38:57 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:38:57 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:38:57 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:38:57 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:38:57 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:38:57 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:39:15 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:39:18 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-04 00:39:39 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:39:39 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:43:04 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:43:05 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:43:05 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:43:05 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:43:05 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:43:05 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:43:05 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:43:23 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:43:31 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:43:31 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:43:31 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:43:31 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 00:55:15 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 00:55:15 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 00:55:15 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 00:55:15 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 00:55:15 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 00:55:15 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 00:55:15 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 00:57:05 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 00:57:12 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:57:12 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:57:13 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:57:13 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 00:58:45 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 00:59:00 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 00:59:00 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:59:01 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 00:59:01 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 01:04:09 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 01:04:09 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 01:04:09 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 01:04:09 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 01:04:09 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 01:04:09 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 01:04:09 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 01:04:25 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 01:04:31 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 01:04:31 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:04:31 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:04:31 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 01:11:55 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 01:11:55 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 01:11:55 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 01:11:55 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 01:11:55 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 01:11:55 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 01:11:55 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 01:12:18 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 01:12:24 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 01:12:25 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:12:25 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:12:25 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 01:13:25 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-04 01:13:30 - BookShopBackend - INFO - Staff search: by=full_name, query=Abheek Sarangi, results=1
+2025-12-04 01:13:33 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 01:13:33 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:13:33 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:13:33 - BookShopBackend - INFO - Daily sales data fetched: 70 days
+2025-12-04 01:13:35 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:13:36 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-04 01:13:37 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-04 01:13:39 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-04 01:18:31 - BookShopBackend - INFO - Fetched 76 authors from database
+2025-12-04 01:20:07 - BookShopBackend - INFO - Fetched 98 authors from database
+2025-12-04 01:20:27 - BookShopBackend - INFO - Search returned 3 authors (field=country, query=Germany)
+2025-12-04 01:20:46 - BookShopBackend - INFO - Search returned 1 authors (field=full_name, query=Senapati)
+2025-12-04 01:20:55 - BookShopBackend - INFO - Search returned 1 authors (field=bio, query=Sage)
+2025-12-04 01:21:13 - BookShopBackend - INFO - Initializing backend system...
+2025-12-04 01:21:13 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-12-04 01:21:13 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-12-04 01:21:13 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-12-04 01:21:13 - BookShopBackend - INFO - Database connection successful.
+2025-12-04 01:21:13 - BookShopBackend - INFO - All API modules initialized.
+2025-12-04 01:21:13 - BookShopBackend - INFO - Backend initialized successfully.
+2025-12-04 01:21:31 - BookShopBackend - INFO - Staff authenticated: admin_aks
+2025-12-04 01:21:39 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-04 01:21:39 - BookShopBackend - INFO - Fetched 98 authors from database
+2025-12-04 01:21:41 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-04 01:21:41 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:21:45 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 01:21:45 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:21:45 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:21:45 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:21:45 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:21:47 - BookShopBackend - INFO - Fetched category-wise stock summary for 6 categories
+2025-12-04 01:21:47 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:21:47 - BookShopBackend - INFO - Fetched top 10 selling books
+2025-12-04 01:21:54 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:21:59 - BookShopBackend - INFO - Fetched stock info for 422 books
+2025-12-04 01:21:59 - BookShopBackend - INFO - Found 67 low stock books (threshold=10)
+2025-12-04 01:22:30 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-04 01:23:11 - BookShopBackend - INFO - Fetched 73 publishers
+2025-12-04 01:23:18 - BookShopBackend - INFO - Fetched 98 authors from database
+2025-12-04 01:23:19 - BookShopBackend - INFO - Fetched 6 categories
+2025-12-04 01:23:57 - BookShopBackend - ERROR - Error updating 421: 1062 (23000): Duplicate entry '' for key 'books.isbn'
+2025-12-04 01:24:07 - BookShopBackend - ERROR - Error updating 421: 1062 (23000): Duplicate entry '' for key 'books.isbn'
+2025-12-04 01:24:20 - BookShopBackend - ERROR - Error updating 422: 1062 (23000): Duplicate entry '' for key 'books.isbn'
